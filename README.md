@@ -1,50 +1,51 @@
 # POST to lemmy :mouse:
 
-Une extension de navigateur qui permet de poster un lien dans une instance de lemmy.
+A browser extension to post links to your Lemmy instance.
+For now it is still in development and is only available on Firefox.
 
-# Installation
-1. Télécharger la dernière release de [l'extension packagée](https://github.com/NiceOpenSource/posttolemmy/releases/tag/0.1) :file_folder:
-2. Rendez vous sur la page about:debugging dans Mozilla firefox :bug:
-3. Dans la section 'Ce Firefox' de la sidebar, cliquez sur 'Charger un module complémentaire temporaire...' :heavy_plus_sign:
-4. Sélectionnez le package de l'extension :open_file_folder:
-5. Ouvrez l'extension via son icone dans le coin supérieur gauche du navigateur et entrez les informations de connexions à votre instance de lemmy :mouse:
+# Installation (Firefox)
+1. Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/tag/0.1) :file_folder:
+2. Go to about:debugging page on Firefox browser :bug:
+3. In the sidebar, go to 'this Firefox' section and click on 'Load an :heavy_plus_sign:
+4. Select the extension package :open_file_folder:
+5. Open the extension using the icon at the top left corner of your browser window and input the login intels to your Lemmy instance :mouse:
 
-> La version de l'instance de lemmy utilisée doit etre supérieure ou égale à la version 0.10.0
+> Your lemmy instance shall use the v3 version of the Lemmy HTTP API (Lemmy version >= 0.10.0)
 
-# Utilisation
-1. Rendez vous sur la page de votre choix
-2. Sélectionnez une partie du texte à partager
-3. Ouvrez l'extension en cliquant sur son icone dans le navigateur
-4. Modifiez le texte à votre convenance et choisissez une catégorie
-5. Postez ! :envelope:
+# Use
+1. Go to any web page
+2. Select the part of it's content that you want to share
+3. Open the extension
+4. Edit the text and the title to match your needs
+5. POST ! :envelope:
 
-# Fonctionalités
-- [x] Remplissage automatique des champs
-- [x] Sélectionner du texte dans la page pour qu'il soit ajouté au commentaire du post.
+# Features
+- [x] Auto-filling fields
+- [x] Select content on the page to add it to the post text
 - [x] Dark theme (beta)
-- [x] Customisation de la page en fonction de l'instance de lemmy utilisée.
+- [x] Auto-customizing popup based on your lemmy instance
 
 ## A venir
-- [ ] Enregistrer plusieurs instances de lemmy
-- [ ] Poster vers plusieurs instance de lemmy en meme temps
-- [ ] Editeur markdown pour le commentaire
-- [ ] Prévisualiseur markdown
+- [ ] Register several different instances of Lemmy
+- [ ] POST to several Lemmy(s) at the same time
+- [ ] Markdown editor for post content
+- [ ] Markdown pre-viewer
 
-# Améliorer POST to lemmy
-* Installez l'extension en mode dev : [Documentation officielle de  Firefox](https://developer.mozilla.org/fr/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing)
-* Les sources sont directement modifiables et en mode dev, la plupart des modifications seront appliqués à l'extension sans avoir a la recharger depuis la page 'about:debugging' de Firefox, contrairement au .zip ou .xpi qu'il faut repackager et réactualiser.
-* Pour build le fichier .zip ou .xpi, installez le package npm 'web-ext';
+# Ehance POST to lemmy (Firefox)
+*  Install the extension in development : [Firefox's official documentation](https://developer.mozilla.org/en/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing)
+* The sources are immediatly editables and development mode reloads the extension after each modification, no need to click the 'Reload' button in 'about:debugging'
+* To build the .zip/.xpi file use the web-ext npm package.
 ```bash
 npm i -g web-ext
 ```
-* Faites vos modifications ensuite pour compiler le fichier d'extension :
+* Code your contributions then :
 ```bash
 web-ext build
 ```
 
 # Contributions
-* Développement : [Loys Caucheteux](https://cv.loys.me)  étudiant à [EPITECH](https://github.com/Epitech) en stage chez [PG3](https://github.com/pg3io). [GitHub](https://github.com/gummyWalrus) / [Linkedin](https://www.linkedin.com/in/loys-caucheteux-a99655205/)
-* Design UI : Jeanne Sala [Linkedin](https://www.linkedin.com/in/jeanne-sala-846a55208/)
+* Developer : [Loys Caucheteux](https://cv.loys.me), [EPITECH](https://github.com/Epitech) student and Intership trainee at [PG3](https://github.com/pg3io). [GitHub](https://github.com/gummyWalrus) / [Linkedin](https://www.linkedin.com/in/loys-caucheteux-a99655205/)
+* UI Designer : Jeanne Sala, [Linkedin](https://www.linkedin.com/in/jeanne-sala-846a55208/)
  
 * [Mozilla firefox](https://developer.mozilla.org/fr/firefox)
 * [Lemmy](https://join-lemmy.org)

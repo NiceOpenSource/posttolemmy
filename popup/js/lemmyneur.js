@@ -103,7 +103,7 @@ function GetCommunities(lemmyCreds) {
     }).then((resp) => {
         tmp = document.createElement('option')
         tmp.setAttribute('value', resp.data.communities[0].community.id)
-        tmp.innerHTML = resp.data.communities[0].community.title;
+        tmp.innerHTML = `${resp.data.communities[0].community.title} | ${resp.data.communities[0].community.name}`;
         document.getElementById('communitySelector').appendChild(tmp)
         axios({
             method: 'GET',
@@ -113,7 +113,7 @@ function GetCommunities(lemmyCreds) {
             response.data.communities.forEach((cmObj) => {
                 tmp = document.createElement('option')
                 tmp.setAttribute('value', cmObj.community.id)
-                tmp.innerHTML = cmObj.community.title;
+                tmp.innerHTML = `${cmObj.community.title} | ${cmObj.community.name}`;
                 document.getElementById('communitySelector').appendChild(tmp)
             })
         }).catch((err) => {console.log(err);});
