@@ -3,7 +3,7 @@
 Une extension de navigateur qui permet de poster un lien dans une instance de lemmy.
 
 # Installation
-1. Télécharger la dernière release de [l'extension packagée](https://github.com/NiceOpenSource/posttolemmy/releases/tag/0.1) :file_folder:
+1. Télécharger la dernière release de [l'extension packagée](https://github.com/NiceOpenSource/posttolemmy/releases/latest) :file_folder:
 2. Rendez vous sur la page about:debugging dans Mozilla firefox :bug:
 3. Dans la section 'Ce Firefox' de la sidebar, cliquez sur 'Charger un module complémentaire temporaire...' :heavy_plus_sign:
 4. Sélectionnez le package de l'extension :open_file_folder:
