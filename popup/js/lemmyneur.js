@@ -3,8 +3,8 @@ var _lemmyCreds;
 var lemmyJwt;
 
 
-function registerInfo(lemmy, counter) {
-    if (fieldsOk.URL && fieldsOk.login && fieldsOk.password) {
+function registerInfo(lemmy, counter, mfieldsOK) {
+    if (mfieldsOK.URL && mfieldsOK.login && mfieldsOK.password) {
         browser.storage.sync.set({'lemmyURL': lemmy.URL});
         browser.storage.sync.set({'lemmyLogin': lemmy.login});
         browser.storage.sync.set({'lemmyPassword': lemmy.password});
@@ -67,7 +67,7 @@ function getLemmyInfo() {
             lemmyJwt = response.data.jwt;
             $('form#initForm').addClass('hidden')
             $('div#defaultPage').removeClass('hidden');
-            registerInfo(formData, 0);
+            registerInfo(formData, 0, fieldsOk);
             runtime(lemmyCreds)
         }).catch((err) => {
             console.log(err)

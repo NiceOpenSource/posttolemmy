@@ -103,7 +103,7 @@ $('#dropCredsSubmit').on('click', () => {
     }).then(function(response) {
         if (response.status === 200) {
             lemmyJwt = response.data.jwt;
-            registerInfo(formData, 0);
+            registerInfo(formData, 0, dropFieldsOk);
             success.slideToggle();
         } else console.log("Error: status code is not 200 ! response.status =" + response.status)
 
