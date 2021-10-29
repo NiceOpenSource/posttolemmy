@@ -24,6 +24,7 @@ Une extension de navigateur qui permet de poster un lien dans une instance de le
 ## A venir
 - [ ] Editeur markdown pour le commentaire
 - [ ] Prévisualiseur markdown
+- [ ] Customisation de la page en fonction de l'instance de lemmy utilisée.
 
 # Améliorer POST to lemmy
 * Installez l'extension en mode dev : [Documentation officielle de  Firefox](https://developer.mozilla.org/fr/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing)

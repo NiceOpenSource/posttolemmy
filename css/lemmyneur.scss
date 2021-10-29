@@ -4,6 +4,13 @@ $primary: #A5BC51;
 $title-color: $primary;
 $dark: rgb(248, 246, 246);
 $input-border-color: $primary;
+$input-focus-border-color: $primary;
+$input-focus-shadow-color: $primary;
+$link: $primary;
+$link-hover: $primary;
+
+$input-hover-color: $primary;
+$input-hover-border-color: $primary;
 @import 'bulma/bulma.sass';
 
 .bulma-center-mixin {
