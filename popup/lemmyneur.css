@@ -1,5 +1,5 @@
 body {
-    width: 400px;
+    width: 500px;
 }
 .hidden {
     display: none;
@@ -10,4 +10,16 @@ button.button-post {
     background-position: center;
     background-repeat: no-repeat;
     width: 4.75rem;
+}
+
+#serverLogo {
+    width: 42px;
+    height: auto;
+    display: inline;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.image-inline {
+    display: inline;
 }

@@ -3,8 +3,22 @@ $('#lemmyInfoDropdown').hide();
 browser.storage.sync.get('lemmyURL').then((url) => {
     if (url === null) {
         $('#lemmyInfoDropdown').show();
+    } else {
+        getSiteCustoms(url)
     }
 }).catch((error) => {console.log(error)});
+
+function getSiteCustoms(url) {
+    axios({
+        method: 'GET',
+        params: {"auth": lemmyJwt},
+        url: url.lemmyURL+'api/v3/site'
+    }).then((response) => {
+        if (response.data.site_view.site.icon.match(/^https?:\/\/[A-Za-z0-9.\-\/]+$/))
+            $('#serverLogo').attr('src', response.data.site_view.site.icon)
+        $('#serverTitle').text(response.data.site_view.site.name)
+    })
+}
 
 $('#dropdownBtn').on('click', (e) => {
     e.preventDefault();
@@ -57,7 +71,7 @@ $('#dropCredsSubmit').on('click', () => {
     }
     var matches;
     if (formData.URL) {
-        matches = formData.URL.match(/^https?:\/\/[a-z0-9.\-\/]+$/)
+        matches = formData.URL.match(/^https?:\/\/[A-Za-z0-9.\-\/]+$/)
         if (matches != null) {
             if (matches[0].length === formData.URL.length) {
                 if (!formData.URL.endsWith('/'))

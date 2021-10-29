@@ -80,9 +80,9 @@ function GetCommunities(lemmyCreds) {
     var field = document.createElement('div')
     field.className = "field has-addons my-4 select-field is-primary";
     var wrapper = document.createElement('div')
-    wrapper.className = 'control';
+    wrapper.className = 'control is-expanded';
     var selector = document.createElement('div')
-    selector.className = 'select';
+    selector.className = 'select is-fullwidth';
     var slect =  document.createElement('select')
     slect.id = 'communitySelector';
     slect.className = 'is-primary';
@@ -110,7 +110,6 @@ function GetCommunities(lemmyCreds) {
             params: {"sort": "New", "type_": "All", "auth": lemmyJwt},
             url: lemmyCreds.URL.lemmyURL+'api/v3/community/list'
         }).then((response) => {
-            console.log(response)
             response.data.communities.forEach((cmObj) => {
                 tmp = document.createElement('option')
                 tmp.setAttribute('value', cmObj.community.id)

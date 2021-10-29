@@ -9,6 +9,8 @@ Une extension de navigateur qui permet de poster un lien dans une instance de le
 4. Sélectionnez le package de l'extension :open_file_folder:
 5. Ouvrez l'extension via son icone dans le coin supérieur gauche du navigateur et entrez les informations de connexions à votre instance de lemmy :mouse:
 
+> La version de l'instance de lemmy utilisée doit etre supérieure ou égale à la version 0.10.0
+
 # Utilisation
 1. Rendez vous sur la page de votre choix
 2. Sélectionnez une partie du texte à partager
@@ -20,11 +22,13 @@ Une extension de navigateur qui permet de poster un lien dans une instance de le
 - [x] Remplissage automatique des champs
 - [x] Sélectionner du texte dans la page pour qu'il soit ajouté au commentaire du post.
 - [x] Dark theme (beta)
+- [x] Customisation de la page en fonction de l'instance de lemmy utilisée.
 
 ## A venir
+- [ ] Enregistrer plusieurs instances de lemmy
+- [ ] Poster vers plusieurs instance de lemmy en meme temps
 - [ ] Editeur markdown pour le commentaire
 - [ ] Prévisualiseur markdown
-- [ ] Customisation de la page en fonction de l'instance de lemmy utilisée.
 
 # Améliorer POST to lemmy
 * Installez l'extension en mode dev : [Documentation officielle de  Firefox](https://developer.mozilla.org/fr/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing)
