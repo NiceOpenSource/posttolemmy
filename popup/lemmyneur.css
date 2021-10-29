@@ -1,0 +1,13 @@
+body {
+    width: 400px;
+}
+.hidden {
+    display: none;
+}
+button.button-post {
+    background-image: url('img/lemmy.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 4.75rem;
+}

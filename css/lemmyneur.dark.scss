@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+$primary: #A5BC51;
+$secondary: #363636;
+$title-color: #A5BC51;
+$input-background-color: $secondary;
+$input-border-color: $primary;
+$input-color: $primary;
+@import 'bulma/bulma.sass';
+
+.bulma-center-mixin {
+  @include center(64,64);
+}

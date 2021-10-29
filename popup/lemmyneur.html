@@ -1,0 +1,114 @@
+<html class="has-background-dark">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="styles.css" id="stylesheetTheme">
+        <link rel="stylesheet" href="lemmyneur.css">
+        <link rel="stylesheet" href="font-awesome/css/all.css">
+    </head>
+    <header>
+
+    </header>
+    <body>
+        <form id="initForm" class="hidden mx-3">
+            <p class="title is-4 mt-4 mx-2">Bienvenu sur Post to lemmy</p>
+            <div class="field">
+                <p class="control">
+                    <input type="text" id="inputUrl" class="input is-primary" placeholder="URL de votre lemmy">
+                    <p class="hidden has-text-danger" id="urlEmpty">Ce champ est requis</p>
+                    <p class="hidden has-text-danger" id="urlNoMatch">Ce n'est pas une URL valide</p>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control">
+                    <input type="text" id="inputUsername" class="input is-primary" placeholder="Votre Login pour lemmy">
+                    <p class="hidden has-text-danger" id="loginEmpty">Ce champ est requis</p>
+                </p>
+            </div>
+            <div class="field has-addons">
+                <p class="control is-expanded">
+                    <input type="password" id="inputPassword" class="input is-primary" placeholder="Votre mot de passe lemmy">
+                </p>
+                <p class="control">
+                    <a id="inputPasswordToggle" class="button is-light"><i class="fa fa-eye-slash"></i></a>
+                </p>
+                <p class="hidden has-text-danger" id="passwordEmpty">Ce champ est requis</p>
+            </div>
+            <p class="hidden has-text-danger" id="passwordOrEmailInvalid">Connexion à Lemmy impossible, vérifiez l'URL, le login et le mot de passe</p>
+            <button type="button" id="submitButton" class="button is-primary">Enregistrer</button>
+        </form>
+        <div id="defaultPage" class="mx-3">
+            <div class="my-3">
+                <span id="lemmyInfoDropdown" class="ml-1">
+                    <div class="dropdown">
+                        <div class="dropdown-trigger">
+                            <button class="button is-rounded is-small is-light is-primary" id="dropdownBtn" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                <span><i class="fa fa-cog"></i></span>
+                                <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu has-background-dark" id="dropdown-menu4" role="menu">
+                            <div class="dropdown-content has-background-dark">
+                                <div class="dropdown-item">
+                                    <div class="field">
+                                        <p class="control">
+                                            <input type="text" id="dropInputUrl" class="input is-primary is-small" placeholder="URL de votre lemmy">
+                                        </p>
+                                        <p class="hidden has-text-danger" id="dropUrlEmpty">Ce champ est requis</p>
+                                        <p class="hidden has-text-danger" id="dropUrlNoMatch">Ce n'est pas une URL valide</p>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item">
+                                    <div class="field">
+                                        <p class="control">
+                                            <input type="text" id="dropInputLogin" class="input is-primary is-small" placeholder="Login">
+                                        </p>
+                                        <p class="hidden has-text-danger" id="dropLoginEmpty">Ce champ est requis</p>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item">
+                                    <div>
+                                        <div class="field has-addons">
+                                            <p class="control">
+                                                <input type="password" id="dropInputPassword" class="input is-primary is-small" placeholder="Mot de passe">
+                                            </p>
+                                            <p class="control">
+                                                <a class="button is-light is-primary is-small" id="dropInputPasswordToggle"><i class="fa fa-eye-slash"></i></a>
+                                            </p>
+                                        </div>
+                                        <p class="hidden has-text-danger" id="dropPasswordEmpty">Ce champ est requis</p>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item">
+                                    <a id="dropCredsSubmit" class="button is-primary is-light"><h1 class="mx-3 subtitle is-6">Enregistrer<i class="ml-3 fa fa-save"></i></h1></a>
+                                </div>
+                                <div class="dropdown-item" class="is-danger" id="dropPasswordOrEmailInvalid">
+                                    <p class="has-text-danger">Connexion à Lemmy impossible, vérifiez l'URL, le login et le mot de passe</p>
+                                    <p class="has-text-success">Changements enregistrés</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+                <span class="title is-4 ml-2 mt-4">POST to Lemmy</span>
+            </div>
+            <div class="field mt-2">
+                <p class="control">
+                    <input type="text" placeholder="URL" id="postUrl" class="is-primary input">
+                </p>
+            </div>
+            <div class="field mt-2">
+                <p class="control">
+                    <input type="text" placeholder="Titre" id="postTitle" class="is-primary input">
+                </p>
+            </div>
+            <textarea id="postText" rows="3" class="textarea is-primary mt-2" placeholder="Commentaire..."></textarea>
+        </div>
+    </body>
+    <script src="font-awesome/js/all.js" type="text/javascript"></script>
+    <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="js/axios.js" type="text/javascript"></script>
+    <script src="js/lemmyneur.js" type="text/javascript"></script>
+    <script src="js/navbar.js" type="text/javascript"></script>
+</html>
