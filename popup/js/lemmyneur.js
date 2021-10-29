@@ -98,15 +98,26 @@ function GetCommunities(lemmyCreds) {
     var tmp;
     axios({
         method: 'GET',
-        params: {"sort": "New", "type_": "All", "auth": lemmyJwt},
-        url: lemmyCreds.URL.lemmyURL+'api/v3/community/list'
-    }).then((response) => {
-        response.data.communities.forEach((cmObj) => {
-            tmp = document.createElement('option')
-            tmp.setAttribute('value', cmObj.community.id)
-            tmp.innerHTML = cmObj.community.title;
-            document.getElementById('communitySelector').appendChild(tmp)
-        })
+        params: {"q": "main", "type_": "Communities", "sort": "Hot", "auth": lemmyJwt},
+        url: lemmyCreds.URL.lemmyURL+'api/v3/search'
+    }).then((resp) => {
+        tmp = document.createElement('option')
+        tmp.setAttribute('value', resp.data.communities[0].community.id)
+        tmp.innerHTML = resp.data.communities[0].community.title;
+        document.getElementById('communitySelector').appendChild(tmp)
+        axios({
+            method: 'GET',
+            params: {"sort": "New", "type_": "All", "auth": lemmyJwt},
+            url: lemmyCreds.URL.lemmyURL+'api/v3/community/list'
+        }).then((response) => {
+            console.log(response)
+            response.data.communities.forEach((cmObj) => {
+                tmp = document.createElement('option')
+                tmp.setAttribute('value', cmObj.community.id)
+                tmp.innerHTML = cmObj.community.title;
+                document.getElementById('communitySelector').appendChild(tmp)
+            })
+        }).catch((err) => {console.log(err);});
     }).catch((err) => {console.log(err);});
 }
 

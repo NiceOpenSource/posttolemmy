@@ -1,13 +1,12 @@
 # POST to lemmy :mouse:
----
 
-Une extension pour Mozilla firefox :fox_face: qui permet de poster un lien dans une instance de lemmy.
+Une extension de navigateur qui permet de poster un lien dans une instance de lemmy.
 
 # Installation
-1. Clonez le répertoire :file_folder:
+1. Télécharger la dernière release de l'extension packagée :file_folder:
 2. Rendez vous sur la page about:debugging dans Mozilla firefox :bug:
 3. Dans la section 'Ce Firefox' de la sidebar, cliquez sur 'Charger un module complémentaire temporaire...' :heavy_plus_sign:
-4. Rendez vous dans le dossier du répertoire cloné et sélectionnez le fichier 'manifest.json' :open_file_folder:
+4. Sélectionnez le package de l'extension :open_file_folder:
 5. Ouvrez l'extension via son icone dans le coin supérieur gauche du navigateur et entrez les informations de connexions à votre instance de lemmy :mouse:
 
 # Utilisation
@@ -18,16 +17,18 @@ Une extension pour Mozilla firefox :fox_face: qui permet de poster un lien dans 
 5. Postez ! :envelope:
 
 # Fonctionalités
-[x] Remplissage automatique des champs
-[x] Sélectionner du texte dans la page pour qu'il soit ajouté au commentaire du post.
-[x] Dark theme (beta)
+- [x] Remplissage automatique des champs
+- [x] Sélectionner du texte dans la page pour qu'il soit ajouté au commentaire du post.
+- [x] Dark theme (beta)
 
 ## A venir
-[ ] Editeur markdown pour le commentaire
-[ ] Prévisualiseur markdown
+- [ ] Editeur markdown pour le commentaire
+- [ ] Prévisualiseur markdown
 
 # Améliorer POST to lemmy
-Les sources sont directement modifiables, installez le package npm 'web-ext'
+Installez l'extension en mode dev : [Documentation officielle de  Firefox](https://developer.mozilla.org/fr/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing)
+Les sources sont directement modifiables et en mode dev, la plupart des modifications seront appliqués à l'extension sans avoir a la recharger depuis la page 'about:debugging' de Firefox, contrairement au .zip ou .xpi qu'il faut repackager et réactualiser.
+Pour build le fichier .zip ou .xpi, installez le package npm 'web-ext';
 ```bash
 npm i -g web-ext
 ```
@@ -37,7 +38,6 @@ web-ext build
 ```
 
 # Contributions
-
 * Développement : [Loys Caucheteux](https://cv.loys.me)  étudiant à [EPITECH](https://epitech.eu) en stage chez [PG3](https://pg3.io). [GitHub](https://github.com/gummyWalrus) / [Linkedin](https://www.linkedin.com/in/loys-caucheteux-a99655205/)
 * Design UI  : Jeanne Sala [Linkedin](https://www.linkedin.com/in/jeanne-sala-846a55208/)
  
