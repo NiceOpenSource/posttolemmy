@@ -40,7 +40,5 @@ For rolling release => [wiki](hhttps://github.com/NiceOpenSource/posttolemmy/wik
 * [ShowdownJS](https://github.com/showdownjs/showdown)
 * [Mozilla firefox](https://developer.mozilla.org/fr/firefox)
 * [Lemmy](https://join-lemmy.org)
-* [Bulma](https://bulma.io/)
-* [Jquery](https://jquery.com/)
 * [Axios](https://www.npmjs.com/package/axios)
-* [Font Awesome](https://www.fontawesome.com)
+* Style librairies : [Bulma](https://bulma.io/), [Jquery](https://jquery.com/), [Font Awesome](https://www.fontawesome.com)
