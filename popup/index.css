@@ -23,3 +23,31 @@ button.button-post {
 .image-inline {
     display: inline;
 }
+.downarea-wrapper {
+    border-color: #A5BC51 !important;
+}
+.downarea {
+    border-color: #A5BC51 !important;
+    height: 200px !important;
+}
+.downarea-toolbar {
+    border: none !important;
+    color: white !important;
+    background-color: #363636 !important;
+}
+.downarea-bottom {
+    background-color: #363636 !important;
+    border: none !important;
+}
+.downarea-toolbar-tool {
+    background-color: #A5BC51 !important;
+    border: none !important;
+}
+.downarea-textarea {
+    background-color: #363636 !important;
+    border: #A5BC51 1px !important;
+}
+.heading-list {
+    background-color: #363636 !important;
+    color: white !important;
+}

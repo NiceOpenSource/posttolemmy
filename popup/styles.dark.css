@@ -352,7 +352,7 @@ span {
   font-weight: inherit; }
 
 strong {
-  color: #363636;
+  color: #A5BC51;
   font-weight: 700; }
 
 fieldset {
@@ -381,7 +381,7 @@ table th {
     text-align: inherit; }
 
 table th {
-  color: #363636; }
+  color: #A5BC51; }
 
 @keyframes spinAround {
   from {
@@ -408,7 +408,7 @@ a.box:active {
   background-color: white;
   border-color: #dbdbdb;
   border-width: 1px;
-  color: #363636;
+  color: #A5BC51;
   cursor: pointer;
   justify-content: center;
   padding-bottom: calc(0.5em - 1px);
@@ -449,10 +449,10 @@ a.box:active {
     text-decoration: underline; }
     .button.is-text:hover, .button.is-text.is-hovered, .button.is-text:focus, .button.is-text.is-focused {
       background-color: whitesmoke;
-      color: #363636; }
+      color: #A5BC51; }
     .button.is-text:active, .button.is-text.is-active {
       background-color: #e8e8e8;
-      color: #363636; }
+      color: #A5BC51; }
     .button.is-text[disabled],
     fieldset[disabled] .button.is-text {
       background-color: transparent;
@@ -1344,7 +1344,7 @@ a.box:active {
 .content h4,
 .content h5,
 .content h6 {
-  color: #363636;
+  color: #A5BC51;
   font-weight: 600;
   line-height: 1.125; }
 
@@ -1444,17 +1444,17 @@ a.box:active {
     padding: 0.5em 0.75em;
     vertical-align: top; }
   .content table th {
-    color: #363636; }
+    color: #A5BC51; }
     .content table th:not([align]) {
       text-align: inherit; }
   .content table thead td,
   .content table thead th {
     border-width: 0 0 2px;
-    color: #363636; }
+    color: #A5BC51; }
   .content table tfoot td,
   .content table tfoot th {
     border-width: 2px 0 0;
-    color: #363636; }
+    color: #A5BC51; }
   .content table tbody tr:last-child td,
   .content table tbody tr:last-child th {
     border-bottom-width: 0; }
@@ -1792,7 +1792,7 @@ div.icon-text {
 
 .table {
   background-color: white;
-  color: #363636; }
+  color: #A5BC51; }
   .table td,
   .table th {
     border: 1px solid #dbdbdb;
@@ -1866,7 +1866,7 @@ div.icon-text {
     .table th.is-vcentered {
       vertical-align: middle; }
   .table th {
-    color: #363636; }
+    color: #A5BC51; }
     .table th:not([align]) {
       text-align: inherit; }
   .table tr.is-selected {
@@ -1884,13 +1884,13 @@ div.icon-text {
     .table thead td,
     .table thead th {
       border-width: 0 0 2px;
-      color: #363636; }
+      color: #A5BC51; }
   .table tfoot {
     background-color: transparent; }
     .table tfoot td,
     .table tfoot th {
       border-width: 2px 0 0;
-      color: #363636; }
+      color: #A5BC51; }
   .table tbody {
     background-color: transparent; }
     .table tbody tr:last-child td,
@@ -2118,7 +2118,7 @@ a.tag:hover {
   font-weight: 400;
   line-height: 1.25; }
   .subtitle strong {
-    color: #363636;
+    color: #A5BC51;
     font-weight: 600; }
   .subtitle:not(.is-spaced) + .title {
     margin-top: -1.25rem; }
@@ -2693,12 +2693,12 @@ a.tag:hover {
   position: relative; }
   .file-label:hover .file-cta {
     background-color: #eeeeee;
-    color: #363636; }
+    color: #A5BC51; }
   .file-label:hover .file-name {
     border-color: #d5d5d5; }
   .file-label:active .file-cta {
     background-color: #e8e8e8;
-    color: #363636; }
+    color: #A5BC51; }
   .file-label:active .file-name {
     border-color: #cfcfcf; }
 
@@ -2745,7 +2745,7 @@ a.tag:hover {
     font-size: 14px; }
 
 .label {
-  color: #363636;
+  color: #A5BC51;
   display: block;
   font-size: 1rem;
   font-weight: 700; }
@@ -2984,7 +2984,7 @@ a.tag:hover {
     .breadcrumb li:first-child a {
       padding-left: 0; }
     .breadcrumb li.is-active a {
-      color: #363636;
+      color: #A5BC51;
       cursor: default;
       pointer-events: none; }
     .breadcrumb li + li::before {
@@ -3045,7 +3045,7 @@ a.tag:hover {
 
 .card-header-title {
   align-items: center;
-  color: #363636;
+  color: #A5BC51;
   display: flex;
   flex-grow: 1;
   font-weight: 700;
@@ -3300,7 +3300,7 @@ button.dropdown-item {
     padding: 0.5em 0.75em; }
     .menu-list a:hover {
       background-color: whitesmoke;
-      color: #363636; }
+      color: #A5BC51; }
     .menu-list a.is-active {
       background-color: #A5BC51;
       color: #fff; }
@@ -3503,7 +3503,7 @@ button.dropdown-item {
   border-top-right-radius: 6px; }
 
 .modal-card-title {
-  color: #363636;
+  color: #A5BC51;
   flex-grow: 1;
   flex-shrink: 0;
   font-size: 1.5rem;
@@ -4352,7 +4352,7 @@ a.navbar-item,
 .pagination-next,
 .pagination-link {
   border-color: #dbdbdb;
-  color: #363636;
+  color: #A5BC51;
   min-width: 2.5em; }
   .pagination-previous:hover,
   .pagination-next:hover,
@@ -4526,7 +4526,7 @@ a.navbar-item,
 .panel-heading {
   background-color: #ededed;
   border-radius: 6px 6px 0 0;
-  color: #363636;
+  color: #A5BC51;
   font-size: 1.25em;
   font-weight: 700;
   line-height: 1.25;
@@ -4552,7 +4552,7 @@ a.navbar-item,
 
 .panel-block {
   align-items: center;
-  color: #363636;
+  color: #A5BC51;
   display: flex;
   justify-content: flex-start;
   padding: 0.5em 0.75em; }
@@ -4615,8 +4615,8 @@ label.panel-block {
     padding: 0.5em 1em;
     vertical-align: top; }
     .tabs a:hover {
-      border-bottom-color: #363636;
-      color: #363636; }
+      border-bottom-color: #A5BC51;
+      color: #A5BC51; }
   .tabs li {
     display: block; }
     .tabs li.is-active a {

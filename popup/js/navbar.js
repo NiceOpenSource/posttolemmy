@@ -21,6 +21,7 @@ function getSiteCustoms(url) {
 }
 
 $('#dropdownBtn').on('click', (e) => {
+    $('#dropSuccess').hide()
     e.preventDefault();
     $('input#dropInputUrl').val(_lemmyCreds.URL.lemmyURL);
     $('input#dropInputLogin').val(_lemmyCreds.login.lemmyLogin);
@@ -105,6 +106,8 @@ $('#dropCredsSubmit').on('click', () => {
             lemmyJwt = response.data.jwt;
             registerInfo(formData, 0, dropFieldsOk);
             success.slideToggle();
+            setTimeout(() => window.location.reload(), 3000)
+
         } else console.log("Error: status code is not 200 ! response.status =" + response.status)
 
     }).catch((err) => {

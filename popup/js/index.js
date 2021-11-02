@@ -1,7 +1,21 @@
 var fieldsOk = {"URL": false, "login": false, "password": false}
 var _lemmyCreds;
 var lemmyJwt;
+var downarea = new DownArea({
+    elem: document.querySelector('#postText'),
+});
 
+$('#buttonPreview').on('click', function () {
+    var text = document.getElementById('postText').value,
+    converter = new showdown.Converter(),
+    html = converter.makeHtml(text);
+    $('#previewModal').children('.modal-content').html(html);
+    $('#previewModal').addClass('is-active');
+})
+
+$('button.modal-close').on('click', function () {
+    $('#previewModal').removeClass('is-active');
+})
 
 function registerInfo(lemmy, counter, mfieldsOK) {
     if (mfieldsOK.URL && mfieldsOK.login && mfieldsOK.password) {
@@ -94,7 +108,7 @@ function GetCommunities(lemmyCreds) {
     button.className = 'control';
     button.innerHTML = '<button id="mainButton" class="button button-post"></button>';
     field.appendChild(button);
-    document.getElementById('postText').after(field);
+    document.getElementById('selectPlace').after(field);
     var tmp;
     axios({
         method: 'GET',
@@ -166,7 +180,6 @@ function createPost(lemmyCreds) {
             $('div#linkPosted').removeClass('hidden');
             document.getElementById('postLink').href = lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`
             document.getElementById('postLink').innerText = title.substring(0, 15)+'...';
-            // browser.tabs.create({url: lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`})
         } else console.log('error when trying to post')
     }).catch((err) => {console.log(err)})
 }
