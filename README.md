@@ -24,12 +24,13 @@ For now it is still in development and is only available on Firefox.
 - [x] Select content on the page to add it to the post text
 - [x] Dark theme (beta)
 - [x] Auto-customizing popup based on your lemmy instance
+- [x] Markdown editor for post content
+- [x] Markdown pre-viewer
 
-## A venir
+## Incoming
 - [ ] Register several different instances of Lemmy
 - [ ] POST to several Lemmy(s) at the same time
-- [ ] Markdown editor for post content
-- [ ] Markdown pre-viewer
+
 
 # Ehance POST to lemmy (Firefox)
 *  [Install the extension in development](https://github.com/NiceOpenSource/posttolemmy/wiki/Install-in-development-on-Mozilla-Firefox)
