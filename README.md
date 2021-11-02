@@ -6,7 +6,7 @@ For now it is still in development and is only available on Firefox.
 # Installation (Firefox)
 1. Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/tag/0.1) :file_folder:
 2. Go to about:debugging page on Firefox browser :bug:
-3. In the sidebar, go to 'this Firefox' section and click on 'Load an :heavy_plus_sign:
+3. In the sidebar, go to 'this Firefox' section and click on 'Load temporary Add-on' :heavy_plus_sign:
 4. Select the extension package :open_file_folder:
 5. Open the extension using the icon at the top left corner of your browser window and input the login intels to your Lemmy instance :mouse:
 
@@ -32,7 +32,7 @@ For now it is still in development and is only available on Firefox.
 - [ ] Markdown pre-viewer
 
 # Ehance POST to lemmy (Firefox)
-*  Install the extension in development : [Firefox's official documentation](https://developer.mozilla.org/en/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing)
+*  [Install the extension in development](https://github.com/NiceOpenSource/posttolemmy/wiki/Install-in-development-on-Mozilla-Firefox)
 * The sources are immediatly editables and development mode reloads the extension after each modification, no need to click the 'Reload' button in 'about:debugging'
 * To build the .zip/.xpi file use the web-ext npm package.
 ```bash

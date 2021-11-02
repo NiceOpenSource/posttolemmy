@@ -103,7 +103,7 @@ function GetCommunities(lemmyCreds) {
     }).then((resp) => {
         tmp = document.createElement('option')
         tmp.setAttribute('value', resp.data.communities[0].community.id)
-        tmp.innerHTML = `${resp.data.communities[0].community.title} | ${resp.data.communities[0].community.name}`;
+        tmp.innerHTML = `!${resp.data.communities[0].community.name} | ${resp.data.communities[0].community.title}`;
         document.getElementById('communitySelector').appendChild(tmp)
         axios({
             method: 'GET',
@@ -113,7 +113,7 @@ function GetCommunities(lemmyCreds) {
             response.data.communities.forEach((cmObj) => {
                 tmp = document.createElement('option')
                 tmp.setAttribute('value', cmObj.community.id)
-                tmp.innerHTML = `${cmObj.community.title} | ${cmObj.community.name}`;
+                tmp.innerHTML = `!${cmObj.community.name} | ${cmObj.community.title}`;
                 document.getElementById('communitySelector').appendChild(tmp)
             })
         }).catch((err) => {console.log(err);});
@@ -146,10 +146,13 @@ function runtime(lemmyCreds) {
 }
 
 function createPost(lemmyCreds) {
+    if (!$('div#linkPosted').hasClass('hidden')) $('div#linkPosted').addClass('hidden');
     $('button#mainButton').addClass('is-loading');
     $('button#mainButton').css('background-image', 'none');
+    console.log('Posting...')
+    const title = $('input#postTitle').val();
     const community = $('#communitySelector').val()
-    const body = {"name": $('input#postTitle').val(), "url": $('input#postUrl').val(), "body": $('#postText').val(), "nsfw": false, community_id: parseInt(community), auth: lemmyJwt}
+    const body = {"name": title, "url": $('input#postUrl').val(), "body": $('#postText').val(), "nsfw": false, community_id: parseInt(community), auth: lemmyJwt}
     axios({
         method: 'POST',
         url: lemmyCreds.URL.lemmyURL+'api/v3/post',
@@ -160,7 +163,10 @@ function createPost(lemmyCreds) {
             $('button#mainButton').removeClass('is-loading');
             $('button#mainButton').css('background-image', "url('img/lemmy.svg')");
             console.log('New post successfully posted, opening the post webpage.', lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`)
-            browser.tabs.create({url: lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`})
+            $('div#linkPosted').removeClass('hidden');
+            document.getElementById('postLink').href = lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`
+            document.getElementById('postLink').innerText = title.substring(0, 15)+'...';
+            // browser.tabs.create({url: lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`})
         } else console.log('error when trying to post')
     }).catch((err) => {console.log(err)})
 }

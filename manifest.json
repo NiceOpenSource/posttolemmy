@@ -28,7 +28,7 @@
     "browser_action": {
       "default_icon": "icons/lemmy-48.png",
       "default_title": "POST to lemmy",
-      "default_popup": "popup/lemmyneur.html"
+      "default_popup": "popup/index.html"
     }
   }
   
