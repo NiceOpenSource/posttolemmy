@@ -4,9 +4,9 @@ A browser extension to post links to your Lemmy instance.
 For now it is still in development and is only available on Firefox.
 
 # Installation (Firefox)
-1. Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/tag/0.1) :file_folder:
-2. Go to about:debugging page on Firefox browser :bug:
-3. In the sidebar, go to 'this Firefox' section and click on 'Load temporary Add-on' :heavy_plus_sign:
+1. Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/latest) :file_folder:
+2. Go to ```about:debugging``` page on Firefox browser :bug:
+3. In the sidebar, go to ```this Firefox``` section and click on ```Load temporary Add-on``` :heavy_plus_sign:
 4. Select the extension package :open_file_folder:
 5. Open the extension using the icon at the top left corner of your browser window and input the login intels to your Lemmy instance :mouse:
 
