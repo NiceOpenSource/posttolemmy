@@ -4,7 +4,8 @@ A browser extension to post links to your Lemmy instance.
 For now it is still in development and is only available on Firefox.
 
 # Installation (Firefox)
-For rolling release => [wiki](https://github.com/NiceOpenSource/posttolemmy/wiki/Install-in-development-on-Mozilla-Firefox)
+For rolling release => [wiki](hhttps://github.com/NiceOpenSource/posttolemmy/wiki/Rolling-release-installation)
+  OR 
 1. Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/latest) :file_folder:
 2. Go to ``about:debugging#/runtime/this-firefox`` page on Firefox browser :bug:
 3. Section and click on ```Load temporary Add-on``` :heavy_plus_sign:
@@ -31,19 +32,6 @@ For rolling release => [wiki](https://github.com/NiceOpenSource/posttolemmy/wiki
 ## Incoming
 - [ ] Register several different instances of Lemmy
 - [ ] POST to several Lemmy(s) at the same time
-
-
-# Ehance POST to lemmy (Firefox)
-*  [Install the extension in development](https://github.com/NiceOpenSource/posttolemmy/wiki/Install-in-development-on-Mozilla-Firefox)
-* The sources are immediatly editables and development mode reloads the extension after each modification, no need to click the 'Reload' button in 'about:debugging'
-* To build the .zip/.xpi file use the web-ext npm package.
-```bash
-npm i -g web-ext
-```
-* Code your contributions then :
-```bash
-web-ext build
-```
 
 # Contributions
 * Developer : [Loys Caucheteux](https://cv.loys.me), [EPITECH](https://github.com/Epitech) student and Intership trainee at [PG3](https://github.com/pg3io). [GitHub](https://github.com/gummyWalrus) / [Linkedin](https://www.linkedin.com/in/loys-caucheteux-a99655205/)
