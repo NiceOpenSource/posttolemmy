@@ -3,16 +3,17 @@ A cross-browser extension to post links to your Lemmy instance.
 For now it is still in development.
 
 # Installation
- * Rolling release / development mode => [wiki](https://github.com/NiceOpenSource/posttolemmy/wiki/Rolling-release-installation)
+## Rolling release / development mode
+[wiki](https://github.com/NiceOpenSource/posttolemmy/wiki/Rolling-release-installation)
 
-# OR Firefox :fox_face:
+## On Mozilla Firefox :fox_face:
 1. Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/latest) for Firefox (.zip or .xpi) :file_folder:
 2. Go to ``about:debugging#/runtime/this-firefox`` page on Firefox browser :bug:
 3. Section and click on ```Load temporary Add-on``` :heavy_plus_sign:
 4. Select the extension package :open_file_folder:
 5. Open the extension using the icon at the top-right corner of your browser window and input the login intels to your Lemmy instance :mouse:
 
-# OR Chrome :large_blue_circle: :green_circle: :yellow_circle: :red_circle:
+## On Google Chrome :large_blue_circle: :green_circle: :yellow_circle: :red_circle:
 1. Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/latest) for Chrome (.crx) and it's private key (.pem) :file_folder:
 2. Open the ``chrome://extensions/`` page in Chrome browser 🧩
 3. Drag and drop the .crx into the browser window :open_file_folder:
