@@ -1,9 +1,6 @@
 var fieldsOk = {"URL": false, "login": false, "password": false}
 var _lemmyCreds;
 var lemmyJwt;
-var downarea = new DownArea({
-    elem: document.querySelector('#postText'),
-});
 
 $('#buttonPreview').on('click', function () {
     var text = document.getElementById('postText').value,

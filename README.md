@@ -36,7 +36,6 @@ For rolling release => [wiki](https://github.com/NiceOpenSource/posttolemmy/wiki
 # Contributions
 * Developer : [Loys Caucheteux](https://cv.loys.me), [EPITECH](https://github.com/Epitech) student and Intership trainee at [PG3](https://github.com/pg3io). [GitHub](https://github.com/gummyWalrus) / [Linkedin](https://www.linkedin.com/in/loys-caucheteux-a99655205/)
 * UI Designer : Jeanne Sala, [Linkedin](https://www.linkedin.com/in/jeanne-sala-846a55208/)
-* [DownArea](https://github.com/fatihege/downarea) by [FatiHege](https://github.com/fatihege)
 * [ShowdownJS](https://github.com/showdownjs/showdown)
 * [Mozilla firefox](https://developer.mozilla.org/fr/firefox)
 * [Lemmy](https://join-lemmy.org)
