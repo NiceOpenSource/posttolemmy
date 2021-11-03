@@ -1,16 +1,24 @@
 # POST to lemmy :mouse:
 
-A browser extension to post links to your Lemmy instance.
-For now it is still in development and is only available on Firefox.
+A cross-browser extension to post links to your Lemmy instance.
+For now it is still in development.
+# Installation
+ * Rolling release / development mode => [wiki](https://github.com/NiceOpenSource/posttolemmy/wiki/Rolling-release-installation)
 
-# Installation (Firefox)
-For rolling release => [wiki](https://github.com/NiceOpenSource/posttolemmy/wiki/Rolling-release-installation)
-* OR 
-1. Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/latest) :file_folder:
+
+# OR Firefox :fox_face:
+1. Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/latest) for Firefox (.zip or .xpi) :file_folder:
 2. Go to ``about:debugging#/runtime/this-firefox`` page on Firefox browser :bug:
 3. Section and click on ```Load temporary Add-on``` :heavy_plus_sign:
 4. Select the extension package :open_file_folder:
-5. Open the extension using the icon at the top left corner of your browser window and input the login intels to your Lemmy instance :mouse:
+5. Open the extension using the icon at the top-right corner of your browser window and input the login intels to your Lemmy instance :mouse:
+
+# OR Chrome :world_america:
+1. Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/latest) for Chrome (.crx) :file_folder:
+2. Open the ``chrome://extensions/`` page in Chrome browser 🧩
+3. Drag and drop the .crx into the browser window :open_file_folder:
+4. Click on the puzzle to pin the add-on to the extension toolbar :hammer_and_wrench:
+5. Open the extension using the icon at the top-right corner of your browser window and input the login intels to your Lemmy instance :mouse:
 
 > Your lemmy instance shall use the v3 version of the Lemmy HTTP API (Lemmy version >= 0.10.0)
 
@@ -29,7 +37,7 @@ For rolling release => [wiki](https://github.com/NiceOpenSource/posttolemmy/wiki
 - [x] Markdown editor for post content
 - [x] Markdown pre-viewer
 
-## Incoming
+# Incoming
 - [ ] Register several different instances of Lemmy
 - [ ] POST to several Lemmy(s) at the same time
 
