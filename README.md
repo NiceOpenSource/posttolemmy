@@ -5,7 +5,11 @@ For now it is still in development and is only available on Firefox.
 
 # Installation (Firefox)
 For rolling release => [wiki](https://github.com/NiceOpenSource/posttolemmy/wiki/Rolling-release-installation)
-* OR 
+
+
+OR 
+
+
 1. Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/latest) :file_folder:
 2. Go to ``about:debugging#/runtime/this-firefox`` page on Firefox browser :bug:
 3. Section and click on ```Load temporary Add-on``` :heavy_plus_sign:
@@ -29,7 +33,7 @@ For rolling release => [wiki](https://github.com/NiceOpenSource/posttolemmy/wiki
 - [x] Markdown editor for post content
 - [x] Markdown pre-viewer
 
-## Incoming
+# Incoming
 - [ ] Register several different instances of Lemmy
 - [ ] POST to several Lemmy(s) at the same time
 
