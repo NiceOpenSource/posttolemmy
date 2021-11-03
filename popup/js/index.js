@@ -1,6 +1,23 @@
 var fieldsOk = {"URL": false, "login": false, "password": false}
 var _lemmyCreds;
 var lemmyJwt;
+const storage = getBrowserStorage();
+
+function getBrowserStorage() {
+    if (browser) {
+        return browser.storage.sync;
+    } else return chrome.storage.sync;
+}
+
+
+function getBrowser() {
+    if (browser) {
+        return browser;
+    } else return chrome;
+}
+
+const cross_browser = getBrowser();
+
 
 $('#buttonPreview').on('click', function () {
     var text = document.getElementById('postText').value,
@@ -14,15 +31,15 @@ $('button.modal-close').on('click', function () {
     $('#previewModal').removeClass('is-active');
 })
 
-function registerInfo(lemmy, counter, mfieldsOK) {
-    if (mfieldsOK.URL && mfieldsOK.login && mfieldsOK.password) {
-        browser.storage.sync.set({'lemmyURL': lemmy.URL});
-        browser.storage.sync.set({'lemmyLogin': lemmy.login});
-        browser.storage.sync.set({'lemmyPassword': lemmy.password});
-        init()
-    } else if (counter < 300) setTimeout(registerInfo, 200, lemmy, counter+1);
-}
 
+function registerInfo (lemmy, counter, mFieldsOK) {
+    if (mFieldsOK.URL && mFieldsOK.login && mFieldsOK.password) {
+        storage.set({'lemmyURL': lemmy.URL});
+        storage.set({'lemmyLogin': lemmy.login});
+        storage.set({'lemmyPassword': lemmy.password});
+        init()
+    } else if (counter < 300) setTimeout(registerInfo, 200, lemmy, counter+1, mFieldsOK);
+}
 
 function getLemmyInfo() {
     $('form#initForm').removeClass('hidden')
@@ -132,7 +149,7 @@ function GetCommunities(lemmyCreds) {
 }
 
 function getPost() {
-    browser.tabs.executeScript(browser.tabs.getCurrent().id, {
+    cross_browser.tabs.executeScript(cross_browser.tabs.getCurrent().id, {
         code: `var text;
         if (window.getSelection) {
             text = window.getSelection().toString();
@@ -189,13 +206,13 @@ async function init() {
         document.getElementById('dropdownBtn').className = document.getElementById('dropCredsSubmit').className.replace(' is-light ', ' is-dark ')
     }
     var lemmyCreds = {"URL": '', "login": '', "password": ''}
-    browser.storage.sync.get('lemmyURL').then((url) => {
+    storage.get('lemmyURL').then((url) => {
         lemmyCreds.URL = url;
         if (typeof(lemmyCreds.URL.lemmyURL) === 'string' && lemmyCreds.URL.lemmyURL) {
-            browser.storage.sync.get('lemmyLogin').then((login) => {
+            storage.get('lemmyLogin').then((login) => {
                 lemmyCreds.login = login;
                 if (typeof(lemmyCreds.login.lemmyLogin) === 'string' && lemmyCreds.login.lemmyLogin) {
-                    browser.storage.sync.get('lemmyPassword').then((password) => {
+                    storage.get('lemmyPassword').then((password) => {
                         lemmyCreds.password = password;
                         if (typeof(lemmyCreds.password.lemmyPassword) === 'string' && lemmyCreds.password.lemmyPassword) {
                             axios({

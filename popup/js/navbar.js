@@ -1,6 +1,6 @@
 $('#lemmyInfoDropdown').hide();
 
-browser.storage.sync.get('lemmyURL').then((url) => {
+storage.get('lemmyURL').then((url) => {
     if (url === null) {
         $('#lemmyInfoDropdown').show();
     } else {
