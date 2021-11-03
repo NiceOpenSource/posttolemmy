@@ -1,10 +1,9 @@
 # POST to lemmy :mouse:
-
 A cross-browser extension to post links to your Lemmy instance.
 For now it is still in development.
+
 # Installation
  * Rolling release / development mode => [wiki](https://github.com/NiceOpenSource/posttolemmy/wiki/Rolling-release-installation)
-
 
 # OR Firefox :fox_face:
 1. Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/latest) for Firefox (.zip or .xpi) :file_folder:
