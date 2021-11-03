@@ -4,16 +4,12 @@
     "name": "POST to lemmy",
     "version": "0.1.4",
     "author": "Loys Caucheteux - PG3 for Nice Open Source",
-    "developer": {
-      "name": "Loys Caucheteux",
-      "url": "https://cv.loys.me"
-    },
     "browser_specific_settings": {
       "gecko": {
         "id": "extension@postlemmy.com",
         "strict_min_version": "42.0"
       }
-    },    
+    },
     "description": "Créer un Post dans lemmy en 3 clics",
     "homepage_url": "https://github.com/pg3io/lemmy",
     "icons": {
