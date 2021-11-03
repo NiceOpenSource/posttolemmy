@@ -13,7 +13,7 @@ For now it is still in development.
 4. Select the extension package :open_file_folder:
 5. Open the extension using the icon at the top-right corner of your browser window and input the login intels to your Lemmy instance :mouse:
 
-# OR Chrome :world_america:
+# OR Chrome :large_blue_circle: :green_circle: :yellow_circle: :red_circle:
 1. Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/latest) for Chrome (.crx) :file_folder:
 2. Open the ``chrome://extensions/`` page in Chrome browser 🧩
 3. Drag and drop the .crx into the browser window :open_file_folder:
