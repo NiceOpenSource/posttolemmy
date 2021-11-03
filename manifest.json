@@ -3,6 +3,11 @@
     "manifest_version": 2,
     "name": "POST to lemmy",
     "version": "0.1.4",
+    "author": "Loys Caucheteux - PG3 for Nice Open Source",
+    "developer": {
+      "name": "Loys Caucheteux",
+      "url": "https://cv.loys.me"
+    },
     "browser_specific_settings": {
       "gecko": {
         "id": "extension@postlemmy.com",
@@ -17,7 +22,9 @@
       "64": "icons/lemmy-64.png",
       "128": "icons/lemmy-128.png"
     },
-  
+    "scripts" : [
+      "scripts/browser-polyfill.js"
+    ],
     "permissions": [
       "activeTab",
       "tabs",

@@ -1,6 +1,23 @@
 var fieldsOk = {"URL": false, "login": false, "password": false}
 var _lemmyCreds;
 var lemmyJwt;
+const storage = getBrowserStorage();
+
+function getBrowserStorage() {
+    if (browser) {
+        return browser.storage.sync;
+    } else return chrome.storage.sync;
+}
+
+
+function getBrowser() {
+    if (browser) {
+        return browser;
+    } else return chrome;
+}
+
+const cross_browser = getBrowser();
+
 
 $('#buttonPreview').on('click', function () {
     var text = document.getElementById('postText').value,
@@ -14,15 +31,15 @@ $('button.modal-close').on('click', function () {
     $('#previewModal').removeClass('is-active');
 })
 
-function registerInfo(lemmy, counter, mfieldsOK) {
-    if (mfieldsOK.URL && mfieldsOK.login && mfieldsOK.password) {
-        browser.storage.sync.set({'lemmyURL': lemmy.URL});
-        browser.storage.sync.set({'lemmyLogin': lemmy.login});
-        browser.storage.sync.set({'lemmyPassword': lemmy.password});
-        init()
-    } else if (counter < 300) setTimeout(registerInfo, 200, lemmy, counter+1);
-}
 
+function registerInfo (lemmy, counter, mFieldsOK) {
+    if (mFieldsOK.URL && mFieldsOK.login && mFieldsOK.password) {
+        storage.set({'lemmyURL': lemmy.URL});
+        storage.set({'lemmyLogin': lemmy.login});
+        storage.set({'lemmyPassword': lemmy.password});
+        init()
+    } else if (counter < 300) setTimeout(registerInfo, 200, lemmy, counter+1, mFieldsOK);
+}
 
 function getLemmyInfo() {
     $('form#initForm').removeClass('hidden')
@@ -132,7 +149,7 @@ function GetCommunities(lemmyCreds) {
 }
 
 function getPost() {
-    browser.tabs.executeScript(browser.tabs.getCurrent().id, {
+    cross_browser.tabs.executeScript(cross_browser.tabs.getCurrent().id, {
         code: `var text;
         if (window.getSelection) {
             text = window.getSelection().toString();
@@ -158,27 +175,39 @@ function runtime(lemmyCreds) {
 
 function createPost(lemmyCreds) {
     if (!$('div#linkPosted').hasClass('hidden')) $('div#linkPosted').addClass('hidden');
+    if (!$('p#urlEmpty').hasClass('hidden')) $('p#urlEmpty').addClass('hidden');
+    if (!$('p#titleEmpty').hasClass('hidden')) $('p#titleEmpty').addClass('hidden');
     $('button#mainButton').addClass('is-loading');
     $('button#mainButton').css('background-image', 'none');
     console.log('Posting...')
     const title = $('input#postTitle').val();
     const community = $('#communitySelector').val()
-    const body = {"name": title, "url": $('input#postUrl').val(), "body": $('#postText').val(), "nsfw": false, community_id: parseInt(community), auth: lemmyJwt}
-    axios({
-        method: 'POST',
-        url: lemmyCreds.URL.lemmyURL+'api/v3/post',
-        data: body,
-    }).then((response) => {
-        if(response.status === 200) 
-        {
-            $('button#mainButton').removeClass('is-loading');
-            $('button#mainButton').css('background-image', "url('img/lemmy.svg')");
-            console.log('New post successfully posted, opening the post webpage.', lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`)
-            $('div#linkPosted').removeClass('hidden');
-            document.getElementById('postLink').href = lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`
-            document.getElementById('postLink').innerText = title.substring(0, 15)+'...';
-        } else console.log('error when trying to post')
-    }).catch((err) => {console.log(err)})
+    const url = $('input#postUrl').val()
+    if (title && url) {
+        const body = {"name": title, "url": url, "body": $('#postText').val(), "nsfw": false, community_id: parseInt(community), auth: lemmyJwt}
+        axios({
+            method: 'POST',
+            url: lemmyCreds.URL.lemmyURL+'api/v3/post',
+            data: body,
+        }).then((response) => {
+            if(response.status === 200) 
+            {
+
+                $('button#mainButton').removeClass('is-loading');
+                $('button#mainButton').css('background-image', "url('img/lemmy.svg')");
+                console.log('New post successfully posted, opening the post webpage.', lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`)
+                $('div#linkPosted').removeClass('hidden');
+                document.getElementById('postLink').href = lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`
+                document.getElementById('postLink').innerText = title.substring(0, 15)+'...';
+            } else console.log('error when trying to post')
+        }).catch((err) => {console.log(err)})
+    } else {
+    $('button#mainButton').removeClass('is-loading');
+    $('button#mainButton').css('background-image', "url('img/lemmy.svg')");
+        if (!title)
+            $('p#titleEmpty').removeClass('hidden')
+        if (!url) $('p#urlEmpty').removeClass('hidden')
+    }
 }
 
 async function init() {
@@ -189,13 +218,13 @@ async function init() {
         document.getElementById('dropdownBtn').className = document.getElementById('dropCredsSubmit').className.replace(' is-light ', ' is-dark ')
     }
     var lemmyCreds = {"URL": '', "login": '', "password": ''}
-    browser.storage.sync.get('lemmyURL').then((url) => {
+    storage.get('lemmyURL').then((url) => {
         lemmyCreds.URL = url;
         if (typeof(lemmyCreds.URL.lemmyURL) === 'string' && lemmyCreds.URL.lemmyURL) {
-            browser.storage.sync.get('lemmyLogin').then((login) => {
+            storage.get('lemmyLogin').then((login) => {
                 lemmyCreds.login = login;
                 if (typeof(lemmyCreds.login.lemmyLogin) === 'string' && lemmyCreds.login.lemmyLogin) {
-                    browser.storage.sync.get('lemmyPassword').then((password) => {
+                    storage.get('lemmyPassword').then((password) => {
                         lemmyCreds.password = password;
                         if (typeof(lemmyCreds.password.lemmyPassword) === 'string' && lemmyCreds.password.lemmyPassword) {
                             axios({

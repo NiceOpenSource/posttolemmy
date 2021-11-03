@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="font-awesome/css/all.css">
     </head>
+    <script src="../scripts/browser-polyfill.js" type="text/javascript"></script>
     <body>
         <form id="initForm" class="hidden mx-3">
             <p class="title is-4 mt-4 mx-2">Bienvenu sur Post to lemmy</p>
@@ -96,11 +97,13 @@
                 <p class="control">
                     <input type="text" placeholder="URL" id="postUrl" class="is-primary input">
                 </p>
+                <p class="has-text-danger hidden" id="urlEmpty">Ce champ est requis</p>
             </div>
             <div class="field mt-2">
                 <p class="control">
                     <input type="text" placeholder="Titre" id="postTitle" class="is-primary input">
                 </p>
+                <p class="has-text-danger hidden" id="titleEmpty">Ce champ est requis</p>
             </div>
             <textarea id="postText" class="textarea is-primary" placeholder="Commentaire..."></textarea>
             <a class="button is-primary is-fullwidth has-text-black" id="buttonPreview">Preview <i class="ml-3 fa fa-eye"></i></a>
