@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Source Code Pro";
+    src: url("css/SourceCodePro-Light.ttf");
+}
+
 body {
     width: 500px;
 }
@@ -50,4 +55,9 @@ button.button-post {
 .heading-list {
     background-color: #363636 !important;
     color: white !important;
+}
+a#buttonPreview {
+    border-top: none !important;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }

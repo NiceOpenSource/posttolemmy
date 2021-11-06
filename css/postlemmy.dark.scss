@@ -1,10 +1,12 @@
 @charset "utf-8";
 
 $primary: #A5BC51;
-$secondary: #363636;
+$info: #363636;
 $title-color: #A5BC51;
+$button-text-color: $primary;
+$button-text-hover-color: $info;
 $text-strong: $primary;
-$input-background-color: $secondary;
+$input-background-color: $info;
 $input-border-color: $primary;
 $input-color: $primary;
 $input-focus-border-color: $primary;
@@ -13,7 +15,19 @@ $link: $primary;
 $link-hover: $primary;
 $input-hover-color: $primary;
 $input-hover-border-color: $primary;
+$family-monospace: "Source Code Pro";
+$family-sans-serif: "Ubuntu";
 @import 'bulma/bulma.sass';
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("css/Ubuntu-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("css/SourceCodePro-Light.ttf");
+}
 
 .bulma-center-mixin {
   @include center(64,64);
