@@ -1,4 +1,4 @@
-# :mouse: POST to lemmies
+# :mouse: POST to lemmy
 A cross-browser extension to post links to your Lemmy instance.
 For now it is still in development.
 
