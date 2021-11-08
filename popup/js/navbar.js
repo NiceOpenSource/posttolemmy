@@ -9,15 +9,17 @@ storage.get('lemmyURL').then((url) => {
 }).catch((error) => {console.log(error)});
 
 function getSiteCustoms(url) {
-    axios({
-        method: 'GET',
-        params: {"auth": lemmyJwt},
-        url: url.lemmyURL+'api/v3/site'
-    }).then((response) => {
-        if (response.data.site_view.site.icon.match(/^https?:\/\/[A-Za-z0-9.\-\/]+$/))
-            $('#serverLogo').attr('src', response.data.site_view.site.icon)
-        $('#serverTitle').text(response.data.site_view.site.name)
-    })
+    if (url.lemmyURL) {
+        axios({
+            method: 'GET',
+            params: {"auth": lemmyJwt},
+            url: url.lemmyURL+'api/v3/site'
+        }).then((response) => {
+            if (response.data.site_view.site.icon.match(/^https?:\/\/[A-Za-z0-9.\-\/]+$/))
+                $('#serverLogo').attr('src', response.data.site_view.site.icon)
+            $('#serverTitle').text(response.data.site_view.site.name)
+        })
+    }
 }
 
 $('#dropdownBtn').on('click', (e) => {
@@ -107,7 +109,6 @@ $('#dropCredsSubmit').on('click', () => {
             registerInfo(formData, 0, dropFieldsOk);
             success.slideToggle();
             setTimeout(() => window.location.reload(), 3000)
-
         } else console.log("Error: status code is not 200 ! response.status =" + response.status)
 
     }).catch((err) => {

@@ -8,7 +8,7 @@
     <script src="../scripts/browser-polyfill.js" type="text/javascript"></script>
     <body>
         <form id="initForm" class="hidden mx-3">
-            <p class="title is-4 mt-4 mx-2">Bienvenu sur Post to lemmy</p>
+            <p class="title is-family-monospace is-4 mt-4 mx-2">Bienvenu(e) sur POST to /lemmy</p>
             <div class="field">
                 <p class="control">
                     <input type="text" id="inputUrl" class="input is-primary" placeholder="URL de votre lemmy">
@@ -27,19 +27,19 @@
                     <input type="password" id="inputPassword" class="input is-primary" placeholder="Votre mot de passe lemmy">
                 </p>
                 <p class="control">
-                    <a id="inputPasswordToggle" class="button is-light"><i class="fa fa-eye-slash"></i></a>
+                    <a id="inputPasswordToggle" class="button is-primary is-outlined"><i class="fa fa-eye-slash"></i></a>
                 </p>
                 <p class="hidden has-text-danger" id="passwordEmpty">Ce champ est requis</p>
             </div>
             <p class="hidden has-text-danger" id="passwordOrEmailInvalid">Connexion à Lemmy impossible, vérifiez l'URL, le login et le mot de passe</p>
-            <button type="button" id="submitButton" class="button is-primary">Enregistrer</button>
+            <button type="button" id="submitButton" class="button is-primary is-outlined">Enregistrer</button>
         </form>
         <div id="defaultPage" class="mx-3">
             <div class="my-3">
                 <span id="lemmyInfoDropdown" class="ml-1">
                     <div class="dropdown">
                         <div class="dropdown-trigger">
-                            <button class="button is-rounded is-small is-light is-primary" id="dropdownBtn" aria-haspopup="true" aria-controls="dropdown-menu4">
+                            <button class="button is-rounded is-small is-outlined is-primary" id="dropdownBtn" aria-haspopup="true" aria-controls="dropdown-menu4">
                                 <span><i class="fa fa-cog"></i></span>
                                 <span class="icon is-small">
                                 <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -72,14 +72,14 @@
                                                 <input type="password" id="dropInputPassword" class="input is-primary is-small" placeholder="Mot de passe">
                                             </p>
                                             <p class="control">
-                                                <a class="button is-light is-primary is-small" id="dropInputPasswordToggle"><i class="fa fa-eye-slash"></i></a>
+                                                <a class="button is-outlined is-primary is-small" id="dropInputPasswordToggle"><i class="fa fa-eye-slash"></i></a>
                                             </p>
                                         </div>
                                         <p class="hidden has-text-danger" id="dropPasswordEmpty">Ce champ est requis</p>
                                     </div>
                                 </div>
                                 <div class="dropdown-item">
-                                    <a id="dropCredsSubmit" class="button is-primary is-light"><h1 class="mx-3 subtitle is-6">Enregistrer<i class="ml-3 fa fa-save"></i></h1></a>
+                                    <a id="dropCredsSubmit" class="button is-primary is-outlined"><h1 class="mx-3 is-6">Enregistrer<i class="ml-3 fa fa-save"></i></h1></a>
                                 </div>
                                 <div class="has-text-success" id="dropSuccess">Changements de crédentiels réussi reload dans 3 secondes...</div>
                                 <div class="dropdown-item" class="is-danger" id="dropPasswordOrEmailInvalid">
@@ -90,7 +90,7 @@
                         </div>
                     </div>
                 </span>
-                <span class="title is-5 ml-5" style="top: 1.2rem; position: absolute;">POST to <span id="serverTitle"></span></span>
+                <span class="title is-5 ml-5" style="top: 1.2rem; position: absolute;">POST to <span id="serverTitle">/lemmy</span></span>
                 <span class="image-inline" style="top: -8px; left: 410px; position: absolute;"><img id="serverLogo"></span>
             </div>
             <div class="field mt-2">
@@ -106,16 +106,15 @@
                 <p class="has-text-danger hidden" id="titleEmpty">Ce champ est requis</p>
             </div>
             <textarea id="postText" class="textarea is-primary" placeholder="Commentaire..."></textarea>
-            <a class="button is-primary is-fullwidth has-text-black" id="buttonPreview">Preview <i class="ml-3 fa fa-eye"></i></a>
+            <a class="button is-primary is-fullwidth is-outlined" id="buttonPreview">Preview <i class="ml-3 fa fa-eye"></i></a>
             <span id="selectPlace"></span>
             <div class="modal" id="previewModal">
                 <div class="modal-background"></div>
-                <div class="modal-content has-background-dark has-text-primary" style="color: #A5BC51 !important;">
-                  
+                <div class="modal-content box has-background-dark has-text-primary" style="color: #A5BC51 !important; width: 375px; border: #A5BC51 solid 1px;">
                 </div>
-                <button class="modal-close is-large" aria-label="close"></button>
+                <button id="modal-close" class="is-large mt-4 mr-4" aria-label="close"><i class="fa fa-times-circle"></i></button>
               </div>
-            <div id="linkPosted" class="hidden"><p class="subtitle is-5 has-text-primary mt-2" style="display: inline;">Post réussi, consultez le ici : </p><a class="button is-primary is-light is-fullwidth ml-6 mb-2" style="display: inline;" id="postLink"></a></div>
+            <div id="linkPosted" class="hidden"><p class="subtitle is-5 has-text-primary mt-2" style="display: inline;">Post réussi, consultez le ici : </p><a class="button is-primary is-outlined ml-6 mb-2" style="display: inline;" id="postLink"></a></div>
         </div>
     </body>
     <script src="markdown-viewer/showdownjs/dist/showdown.js" type="text/javascript"></script>

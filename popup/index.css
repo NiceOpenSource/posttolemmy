@@ -19,6 +19,21 @@ button.button-post {
     margin-left: 1rem;
     margin-top: 1rem;
 }
+textarea {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+#buttonPreview {
+    border-top: none !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+.is-outlined:hover {
+    color: #363636 !important;
+}
+.is-outlined:focus {
+    color: #363636 !important;
+}
 
 .image-inline {
     display: inline;
@@ -50,4 +65,13 @@ button.button-post {
 .heading-list {
     background-color: #363636 !important;
     color: white !important;
+}
+#modal-close {
+    position: absolute;
+    background: none;
+    border: none;
+    top: 25px;
+    left: 425px;
+    color: #A5BC51;
+    font-size: 25px;
 }

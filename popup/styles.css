@@ -299,13 +299,13 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  font-family: "Ubuntu"; }
 
 code,
 pre {
   -moz-osx-font-smoothing: auto;
   -webkit-font-smoothing: auto;
-  font-family: monospace; }
+  font-family: "Source Code Pro"; }
 
 body {
   color: #4a4a4a;
@@ -7014,19 +7014,19 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   font-weight: 700 !important; }
 
 .is-family-primary {
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important; }
+  font-family: "Ubuntu" !important; }
 
 .is-family-secondary {
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important; }
+  font-family: "Ubuntu" !important; }
 
 .is-family-sans-serif {
-  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important; }
+  font-family: "Ubuntu" !important; }
 
 .is-family-monospace {
-  font-family: monospace !important; }
+  font-family: "Source Code Pro" !important; }
 
 .is-family-code {
-  font-family: monospace !important; }
+  font-family: "Source Code Pro" !important; }
 
 .is-block {
   display: block !important; }
@@ -7845,6 +7845,14 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .footer {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("css/Ubuntu-Regular.ttf"); }
+
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("css/SourceCodePro-Light.ttf"); }
 
 .bulma-center-mixin {
   position: absolute;

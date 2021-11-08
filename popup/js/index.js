@@ -27,7 +27,7 @@ $('#buttonPreview').on('click', function () {
     $('#previewModal').addClass('is-active');
 })
 
-$('button.modal-close').on('click', function () {
+$('button#modal-close').on('click', function () {
     $('#previewModal').removeClass('is-active');
 })
 
@@ -96,7 +96,7 @@ function getLemmyInfo() {
             $('form#initForm').addClass('hidden')
             $('div#defaultPage').removeClass('hidden');
             registerInfo(formData, 0, fieldsOk);
-            runtime(lemmyCreds)
+            runtime(formData)
         }).catch((err) => {
             console.log(err)
             $('#passwordOrEmailInvalid').removeClass('hidden')
@@ -106,6 +106,7 @@ function getLemmyInfo() {
 
 function GetCommunities(lemmyCreds) {
     var field = document.createElement('div')
+    field.id = 'divCommunitySelector'
     field.className = "field has-addons my-4 select-field is-primary";
     var wrapper = document.createElement('div')
     wrapper.className = 'control is-expanded';
@@ -122,30 +123,34 @@ function GetCommunities(lemmyCreds) {
     button.className = 'control';
     button.innerHTML = '<button id="mainButton" class="button button-post"></button>';
     field.appendChild(button);
-    document.getElementById('selectPlace').after(field);
+    if (document.getElementById('selectPlace') !== null)
+        document.getElementById('selectPlace').replaceWith(field);
+    else document.getElementById('divCommunitySelector').replaceWith(field);
     var tmp;
-    axios({
-        method: 'GET',
-        params: {"q": "main", "type_": "Communities", "sort": "Hot", "auth": lemmyJwt},
-        url: lemmyCreds.URL.lemmyURL+'api/v3/search'
-    }).then((resp) => {
-        tmp = document.createElement('option')
-        tmp.setAttribute('value', resp.data.communities[0].community.id)
-        tmp.innerHTML = `!${resp.data.communities[0].community.name} | ${resp.data.communities[0].community.title}`;
-        document.getElementById('communitySelector').appendChild(tmp)
+    if (lemmyCreds.URL && lemmyCreds.URL.lemmyURL) {
         axios({
             method: 'GET',
-            params: {"sort": "New", "type_": "All", "auth": lemmyJwt},
-            url: lemmyCreds.URL.lemmyURL+'api/v3/community/list'
-        }).then((response) => {
-            response.data.communities.forEach((cmObj) => {
-                tmp = document.createElement('option')
-                tmp.setAttribute('value', cmObj.community.id)
-                tmp.innerHTML = `!${cmObj.community.name} | ${cmObj.community.title}`;
-                document.getElementById('communitySelector').appendChild(tmp)
-            })
+            params: {"q": "main", "type_": "Communities", "sort": "Hot", "auth": lemmyJwt},
+            url: lemmyCreds.URL.lemmyURL+'api/v3/search'
+        }).then((resp) => {
+            tmp = document.createElement('option')
+            tmp.setAttribute('value', resp.data.communities[0].community.id)
+            tmp.innerHTML = `!${resp.data.communities[0].community.name} | ${resp.data.communities[0].community.title}`;
+            document.getElementById('communitySelector').appendChild(tmp)
+            axios({
+                method: 'GET',
+                params: {"sort": "New", "type_": "All", "auth": lemmyJwt},
+                url: lemmyCreds.URL.lemmyURL+'api/v3/community/list'
+            }).then((response) => {
+                response.data.communities.forEach((cmObj) => {
+                    tmp = document.createElement('option')
+                    tmp.setAttribute('value', cmObj.community.id)
+                    tmp.innerHTML = `!${cmObj.community.name} | ${cmObj.community.title}`;
+                    document.getElementById('communitySelector').appendChild(tmp)
+                })
+            }).catch((err) => {console.log(err);});
         }).catch((err) => {console.log(err);});
-    }).catch((err) => {console.log(err);});
+    }
 }
 
 function getPost() {
@@ -157,9 +162,11 @@ function getPost() {
             text = document.selection.createRange().text;
         } else text = '';
         var res = {url: window.location.href, title: document.title, text: text}; res;`}).then((result) => {
-            $('#postUrl').val(result[0].url)
-            $('#postTitle').val(result[0].title)
-            $('#postText').val(result[0].text)
+            if (result[0]) {
+                $('#postUrl').val(result[0].url)
+                $('#postTitle').val(result[0].title)
+                $('#postText').val(result[0].text)
+            }
         }, (err) => {console.log(err)});
 }
 
@@ -209,6 +216,13 @@ function createPost(lemmyCreds) {
         if (!url) $('p#urlEmpty').removeClass('hidden')
     }
 }
+
+$('#linkPosted').children('a').on('click', function (e) {
+    if (postLink && navigator.userAgent.includes('Chrome/')) {
+        e.preventDefault()
+        cross_browser.tabs.create({url: postLink})
+    }
+});
 
 async function init() {
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
