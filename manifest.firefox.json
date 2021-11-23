@@ -9,8 +9,8 @@
       "strict_min_version": "90.0"
     }
   },
-  "description": "Créer un Post dans lemmy en 3 clics",
-  "homepage_url": "https://github.com/pg3io/lemmy",
+  "description": "A cross-browser extension to post links to your Lemmy instance.",
+  "homepage_url": "https://github.com/NiceOpenSource/posttolemmy",
   "icons": {
     "32": "icons/lemmy-32.png",
     "48": "icons/lemmy-48.png",
