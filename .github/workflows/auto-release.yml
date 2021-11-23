@@ -1,9 +1,7 @@
 on:
-  push:
-    tags:
-      '*'
-    branches-ignore:
-    - '*'
+  create:
+    ref_types:
+      - tag
 
 #comment
 jobs:
@@ -56,7 +54,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.get_version.outputs.version }}
-          release_name: POST to /lemmy ${{ steps.get_version.outputs.version }}
+          release_name: POST to lemmy ${{ steps.get_version.outputs.version }}
           draft: false
           prerelease: false
       
