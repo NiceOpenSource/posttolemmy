@@ -135,7 +135,7 @@ function GetCommunities(lemmyCreds) {
         }).then((resp) => {
             tmp = document.createElement('option')
             tmp.setAttribute('value', resp.data.communities[0].community.id)
-            tmp.innerHTML = `!${resp.data.communities[0].community.name} | ${resp.data.communities[0].community.title}`;
+            tmp.innerText = `!${resp.data.communities[0].community.name} | ${resp.data.communities[0].community.title}`;
             document.getElementById('communitySelector').appendChild(tmp)
             axios({
                 method: 'GET',
@@ -145,7 +145,7 @@ function GetCommunities(lemmyCreds) {
                 response.data.communities.forEach((cmObj) => {
                     tmp = document.createElement('option')
                     tmp.setAttribute('value', cmObj.community.id)
-                    tmp.innerHTML = `!${cmObj.community.name} | ${cmObj.community.title}`;
+                    tmp.innerText = `!${cmObj.community.name} | ${cmObj.community.title}`;
                     document.getElementById('communitySelector').appendChild(tmp)
                 })
             }).catch((err) => {console.log(err);});
@@ -184,6 +184,7 @@ function createPost(lemmyCreds) {
     if (!$('div#linkPosted').hasClass('hidden')) $('div#linkPosted').addClass('hidden');
     if (!$('p#urlEmpty').hasClass('hidden')) $('p#urlEmpty').addClass('hidden');
     if (!$('p#titleEmpty').hasClass('hidden')) $('p#titleEmpty').addClass('hidden');
+    if (!$('p#urlInvalid').hasClass('hidden')) $('p#urlInvalid').addClass('hidden');
     $('button#mainButton').addClass('is-loading');
     $('button#mainButton').css('background-image', 'none');
     console.log('Posting...')
@@ -191,23 +192,22 @@ function createPost(lemmyCreds) {
     const community = $('#communitySelector').val()
     const url = $('input#postUrl').val()
     if (title && url) {
-        const body = {"name": title, "url": url, "body": $('#postText').val(), "nsfw": false, community_id: parseInt(community), auth: lemmyJwt}
-        axios({
-            method: 'POST',
-            url: lemmyCreds.URL.lemmyURL+'api/v3/post',
-            data: body,
-        }).then((response) => {
-            if(response.status === 200) 
-            {
-
-                $('button#mainButton').removeClass('is-loading');
-                $('button#mainButton').css('background-image', "url('img/lemmy.svg')");
-                console.log('New post successfully posted, opening the post webpage.', lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`)
-                $('div#linkPosted').removeClass('hidden');
-                document.getElementById('postLink').href = lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`
-                document.getElementById('postLink').innerText = title.substring(0, 15)+'...';
-            } else console.log('error when trying to post')
-        }).catch((err) => {console.log(err)})
+        if (url.match(/^https?:\/\/[a-z0-9.\-\/]+$/) !== null) {
+            const body = {"name": title, "url": url, "body": $('#postText').val(), "nsfw": false, community_id: parseInt(community), auth: lemmyJwt}
+            axios({
+                method: 'POST',
+                url: lemmyCreds.URL.lemmyURL+'api/v3/post',
+                data: body,
+            }).then((response) => {
+                if(response.status === 200) {
+                    $('button#mainButton').removeClass('is-loading');
+                    $('button#mainButton').html('<i class="fa fa-check"></i>')
+                    console.log('New post successfully posted, opening the post webpage.', lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`)
+                    document.getElementById('postLink').href = lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`
+                    document.getElementById('postLink').innerText = title.substring(0, 15)+'...';
+                } else console.log('error when trying to post')
+            }).catch((err) => {console.log(err)})
+        } else $('#urlInvalid').removeClass('hidden')
     } else {
     $('button#mainButton').removeClass('is-loading');
     $('button#mainButton').css('background-image', "url('img/lemmy.svg')");

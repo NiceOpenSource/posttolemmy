@@ -98,6 +98,7 @@
                     <input type="text" placeholder="URL" id="postUrl" class="is-primary input">
                 </p>
                 <p class="has-text-danger hidden" id="urlEmpty">Ce champ est requis</p>
+                <p class="has-text-danger hidden" id="urlInvalid">Ce n'est pas une URL</p>
             </div>
             <div class="field mt-2">
                 <p class="control">
@@ -114,7 +115,6 @@
                 </div>
                 <button id="modal-close" class="is-large mt-4 mr-4" aria-label="close"><i class="fa fa-times-circle"></i></button>
               </div>
-            <div id="linkPosted" class="hidden"><p class="subtitle is-5 has-text-primary mt-2" style="display: inline;">Post réussi, consultez le ici : </p><a class="button is-primary is-outlined ml-6 mb-2" style="display: inline;" id="postLink"></a></div>
         </div>
     </body>
     <script src="markdown-viewer/showdownjs/dist/showdown.js" type="text/javascript"></script>

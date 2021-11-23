@@ -1,0 +1,67 @@
+on:
+    push:
+        branches:
+            - 'main'
+    
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+                uses: actions/checkout@v2
+            - name: Create build directories
+                run: mkdir build_chrome build_firefox
+            - name: Copy manifest Firefox
+                run: cp manifest.firefox.json build_firefox/manifest.json
+            - name: Copy manifest Chrome
+                run: cp manifest.chrome.json build_chrome/manifest.json
+            - name: Copy files into Chrome dir
+                run: cp -r popup icons scripts build_chrome/.
+            - name: Copy files into Firefox dir
+                run: cp -r popup icons scripts build_firefox/.
+            - name: Package Chrome
+                run: zip -r posttolemmy_chrome.crx build_chrome/*
+            - name: Package Firefox
+                run: zip -r posttolemmy_firefox.xpi build_firefox/*
+            - name: Bump version and push tag
+                id: tag_version
+                uses: mathieudutour/github-tag-action@v5.6
+                with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  tag_prefix: ''
+            - name: Create Release
+                id: create_release
+                uses: actions/create-release@v1
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                with:
+                    tag_name: ${{steps.tag_version.outputs.new_tag }}
+                    release_name: POST to /lemmy ${{steps.tag_version.outputs.new_tag }}
+                    body: |
+                        Changes in this Release
+                        - First Change
+                        - Second Change
+                    draft: false
+                    prerelease: false
+            - name: Upload Chrome Package
+                id: upload-chrome-package 
+                uses: actions/upload-release-asset@v1
+                env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                with:
+                  upload_url: ${{ steps.create_release.outputs.upload_url }}
+                  asset_path: ./posttolemmy_chrome.crx
+                  asset_name: posttolemmy_chrome.crx
+                  asset_content_type: application/zip
+            - name: Upload Firefox Package
+                id: upload-firefox-package 
+                uses: actions/upload-release-asset@v1
+                env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                with:
+                  upload_url: ${{ steps.create_release.outputs.upload_url }}
+                  asset_path: ./posttolemmy_firefox.zip
+                  asset_name: posttolemmy_firefox.zip
+                  asset_content_type: application/zip
+                        
+                
