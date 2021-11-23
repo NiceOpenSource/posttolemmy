@@ -2,6 +2,11 @@ on:
   create:
     ref_types:
       - tag
+  push:
+    tags:
+      - '*'
+    branches-ignore:
+      - '*'
 
 #comment
 jobs:
