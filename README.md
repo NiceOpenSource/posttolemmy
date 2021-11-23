@@ -8,7 +8,7 @@ For now it is still in development.
 :file_folder: Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/latest) for Firefox (.xpi)
 if you use a recent version of Firefox, the package will install itself otherwise follow the instructions below
 
-1. :cog: Go to ``about:addons`` page and click on the cog at the top right corner of the document
+1. :gear: Go to ``about:addons`` page and click on the cog at the top right corner of the document
 2. :heavy_plus_sign: Click ``Install a module from a file``
 3. :open_file_folder: Select the previously downloaded extension package (.xpi)
 4. :mouse: Open the extension using the icon at the top-right corner of your browser window and input the login intels to your Lemmy instance
