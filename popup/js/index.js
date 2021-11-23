@@ -201,7 +201,7 @@ function createPost(lemmyCreds) {
             }).then((response) => {
                 if(response.status === 200) {
                     $('button#mainButton').removeClass('is-loading');
-                    $('button#mainButton').html('<i class="fa fa-check"></i>')
+                    $('button#mainButton').html('<i class="has-text-success fa fa-check"></i>')
                     console.log('New post successfully posted, opening the post webpage.', lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`)
                     document.getElementById('postLink').href = lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`
                     document.getElementById('postLink').innerText = title.substring(0, 15)+'...';
