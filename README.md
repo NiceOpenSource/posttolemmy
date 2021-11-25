@@ -2,6 +2,17 @@
 A cross-browser extension to post links to your Lemmy instance.
 For now it is still in development.
 
+## Compatibility
+| Browser | Compatible | Tested |
+|---------|:------------:|:--------:|
+| Firefox | :heavy_check_mark: | :heavy_check_mark: |
+| Chrome | :heavy_check_mark: | :heavy_check_mark: |
+| Chromium | :heavy_check_mark: | :heavy_check_mark: |
+| Opera | :heavy_check_mark: | :heavy_check_mark: |
+| Opera GX | :heavy_check_mark: | :x: |
+| Safari | :heavy_check_mark: | :x: |
+
+
 # :hammer_and_wrench: Installation
 
 ## :fox_face: On Mozilla Firefox
