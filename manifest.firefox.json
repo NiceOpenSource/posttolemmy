@@ -19,7 +19,7 @@
   },
   "background": {
     "scripts" : [
-      "scripts/browser-polyfill.js"
+      "scripts/browser-polyfill.min.js"
     ]
   },
   "permissions": [

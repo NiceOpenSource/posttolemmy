@@ -225,7 +225,7 @@ $('#linkPosted').children('a').on('click', function (e) {
 async function init() {
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
     if (prefersDarkScheme) {
-        $('#stylesheetTheme').attr('href', 'styles.dark.css')
+        $('#stylesheetTheme').attr('href', 'styles.dark.min.css')
         document.getElementById('dropCredsSubmit').className = document.getElementById('dropCredsSubmit').className.replace(' is-light ', ' is-dark ')
         document.getElementById('dropdownBtn').className = document.getElementById('dropCredsSubmit').className.replace(' is-light ', ' is-dark ')
     }
