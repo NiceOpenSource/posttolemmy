@@ -1,5 +1,5 @@
 $('#lemmyInfoDropdown').hide();
-
+feather.replace()
 storage.get('lemmyURL').then((url) => {
     if (url === null) {
         $('#lemmyInfoDropdown').show();
@@ -37,14 +37,14 @@ $('#dropdownBtn').on('click', (e) => {
 let togglePassword = $('#dropInputPasswordToggle')
 let toggleIcon = togglePassword.children('i')
 togglePassword.on('click', () => {
-    if (toggleIcon.hasClass('fa-eye-slash') && !toggleIcon.hasClass('fa-eye')) {
+    if (toggleIcon.attr('data-feather') === 'eye-off') {
         $('input#dropInputPassword').attr('type', 'text')
-        toggleIcon.addClass('fa-eye')
-        toggleIcon.removeClass('fa-eye-slash')
-    } else if (toggleIcon.hasClass('fa-eye') && !toggleIcon.hasClass('fa-eye-slash')) {
+        toggleIcon.attr('data-feather', 'eye')
+        feather.replace()
+    } else if (toggleIcon.attr('data-feather') === 'eye') {
         $('input#dropInputPassword').attr('type', 'password')
-        toggleIcon.addClass('fa-eye-slash')
-        toggleIcon.removeClass('fa-eye')
+        toggleIcon.attr('data-feather', 'eye-off')
+        feather.replace()
     }
 })
 

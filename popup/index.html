@@ -3,7 +3,6 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" href="styles.css" id="stylesheetTheme">
         <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="font-awesome/css/all.css">
     </head>
     <script src="../scripts/browser-polyfill.js" type="text/javascript"></script>
     <body>
@@ -27,7 +26,7 @@
                     <input type="password" id="inputPassword" class="input is-primary" placeholder="Votre mot de passe lemmy">
                 </p>
                 <p class="control">
-                    <a id="inputPasswordToggle" class="button is-primary is-outlined"><i class="fa fa-eye-slash"></i></a>
+                    <a id="inputPasswordToggle" class="button is-primary is-outlined"><i data-feather="eye-off"></i></a>
                 </p>
                 <p class="hidden has-text-danger" id="passwordEmpty">Ce champ est requis</p>
             </div>
@@ -40,9 +39,9 @@
                     <div class="dropdown">
                         <div class="dropdown-trigger">
                             <button class="button is-rounded is-small is-outlined is-primary" id="dropdownBtn" aria-haspopup="true" aria-controls="dropdown-menu4">
-                                <span><i class="fa fa-cog"></i></span>
+                                <span><i data-feather="settings"></i></span>
                                 <span class="icon is-small">
-                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                <i data-feather="chevron-down" aria-hidden="true"></i>
                                 </span>
                             </button>
                         </div>
@@ -72,14 +71,14 @@
                                                 <input type="password" id="dropInputPassword" class="input is-primary is-small" placeholder="Mot de passe">
                                             </p>
                                             <p class="control">
-                                                <a class="button is-outlined is-primary is-small" id="dropInputPasswordToggle"><i class="fa fa-eye-slash"></i></a>
+                                                <a class="button is-outlined is-primary is-small" id="dropInputPasswordToggle"><i data-feather="eye-off"></i></a>
                                             </p>
                                         </div>
                                         <p class="hidden has-text-danger" id="dropPasswordEmpty">Ce champ est requis</p>
                                     </div>
                                 </div>
                                 <div class="dropdown-item">
-                                    <a id="dropCredsSubmit" class="button is-primary is-outlined"><h1 class="mx-3 is-6">Enregistrer<i class="ml-3 fa fa-save"></i></h1></a>
+                                    <a id="dropCredsSubmit" class="button is-primary is-outlined"><h1 class="mx-3 is-6">Enregistrer</h1><i data-feather="save" class="ml-3"></i></a>
                                 </div>
                                 <div class="has-text-success" id="dropSuccess">Changements de crédentiels réussi reload dans 3 secondes...</div>
                                 <div class="dropdown-item" class="is-danger" id="dropPasswordOrEmailInvalid">
@@ -107,18 +106,18 @@
                 <p class="has-text-danger hidden" id="titleEmpty">Ce champ est requis</p>
             </div>
             <textarea id="postText" class="textarea is-primary" placeholder="Commentaire..."></textarea>
-            <a class="button is-primary is-fullwidth is-outlined" id="buttonPreview">Preview <i class="ml-3 fa fa-eye"></i></a>
+            <a class="button is-primary is-fullwidth is-outlined" id="buttonPreview">Preview <i class="ml-3" data-feather="eye"></i></a>
             <span id="selectPlace"></span>
             <div class="modal" id="previewModal">
                 <div class="modal-background"></div>
                 <div class="modal-content box has-background-dark has-text-primary" style="color: #A5BC51 !important; width: 375px; border: #A5BC51 solid 1px;">
                 </div>
-                <button id="modal-close" class="is-large mt-4 mr-4" aria-label="close"><i class="fa fa-times-circle"></i></button>
+                <button id="modal-close" class="is-large mt-4 mr-4" aria-label="close"><i data-feather="x-circle"></i></button>
               </div>
         </div>
     </body>
     <script src="markdown-viewer/showdownjs/dist/showdown.js" type="text/javascript"></script>
-    <script src="font-awesome/js/all.js" type="text/javascript"></script>
+    <script src="feather/dist/feather.min.js" type="text/javascript"></script>
     <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
     <script src="js/axios.js" type="text/javascript"></script>
     <script src="js/index.js" type="text/javascript"></script>

@@ -139,7 +139,7 @@ function GetCommunities(lemmyCreds) {
             document.getElementById('communitySelector').appendChild(tmp)
             axios({
                 method: 'GET',
-                params: {"sort": "New", "type_": "All", "auth": lemmyJwt},
+                params: {"sort": "Hot", "type_": "All", "auth": lemmyJwt},
                 url: lemmyCreds.URL.lemmyURL+'api/v3/community/list'
             }).then((response) => {
                 response.data.communities.forEach((cmObj) => {
@@ -176,7 +176,8 @@ function runtime(lemmyCreds) {
     GetCommunities(lemmyCreds);
     getPost();
     $('button#mainButton').on('click', () => {
-        createPost(lemmyCreds)
+        if ($('button#mainButton').css('background-image') !== 'none')
+            createPost(lemmyCreds)
     });
 }
 
@@ -192,7 +193,6 @@ function createPost(lemmyCreds) {
     const community = $('#communitySelector').val()
     const url = $('input#postUrl').val()
     if (title && url) {
-        if (url.match(/^https?:\/\/[a-z0-9.\-\/]+$/) !== null) {
             const body = {"name": title, "url": url, "body": $('#postText').val(), "nsfw": false, community_id: parseInt(community), auth: lemmyJwt}
             axios({
                 method: 'POST',
@@ -201,13 +201,11 @@ function createPost(lemmyCreds) {
             }).then((response) => {
                 if(response.status === 200) {
                     $('button#mainButton').removeClass('is-loading');
-                    $('button#mainButton').html('<i class="has-text-success fa fa-check"></i>')
-                    console.log('New post successfully posted, opening the post webpage.', lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`)
-                    document.getElementById('postLink').href = lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`
-                    document.getElementById('postLink').innerText = title.substring(0, 15)+'...';
+                    $('button#mainButton').html('<i class="has-text-success" data-feather="check"></i>')
+                    feather.replace()
+                    console.log('New post successfully posted, opening the post webpage.', lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`);
                 } else console.log('error when trying to post')
             }).catch((err) => {console.log(err)})
-        } else $('#urlInvalid').removeClass('hidden')
     } else {
     $('button#mainButton').removeClass('is-loading');
     $('button#mainButton').css('background-image', "url('img/lemmy.svg')");
