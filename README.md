@@ -2,7 +2,7 @@
 A cross-browser extension to post links to your Lemmy instance.
 For now it is still in development.
 
-## Compatibility
+## Compatible Browsers
 | Browser | Compatible | Tested |
 |---------|:------------:|:--------:|
 | Firefox | :heavy_check_mark: | :heavy_check_mark: |
