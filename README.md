@@ -3,14 +3,15 @@ A cross-browser extension to post links to your Lemmy instance.
 For now it is still in development.
 
 ## Compatible Browsers
-| Browser | Compatible | Tested |
+| Browser | Compatible | Version |
 |---------|:------------:|:--------:|
-| Firefox | :heavy_check_mark: | :heavy_check_mark: |
-| Chrome | :heavy_check_mark: | :heavy_check_mark: |
-| Chromium | :heavy_check_mark: | :heavy_check_mark: |
-| Opera | :heavy_check_mark: | :heavy_check_mark: |
-| Opera GX | :heavy_check_mark: | :x: |
-| Safari | :heavy_check_mark: | :x: |
+| Firefox | :heavy_check_mark: | >= 90.0 |
+| Chrome | :heavy_check_mark: | any |
+| Chromium | :heavy_check_mark: | any |
+| Opera | :heavy_check_mark: | any |
+| Opera GX | :heavy_check_mark: | any |
+| Edge | Indev | any |
+| Safari | :heavy_check_mark: | >= 14.0 |
 
 
 # :hammer_and_wrench: Installation

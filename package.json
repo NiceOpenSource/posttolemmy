@@ -1,0 +1,25 @@
+{
+  "name": "posttolemmy",
+  "version": "0.1.9",
+  "description": "A cross-browser extension to post links to your Lemmy instance. For now it is still in development.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "npx node-sass css/postlemmy.dark.scss styles.dark.css && npx node-sass css/postlemmy.scss styles.css && npx css-minify -f styles.dark.css && npx css-minify -f styles.css && mv css-dist/* popup/. && rm *.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NiceOpenSource/posttolemmy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NiceOpenSource/posttolemmy/issues"
+  },
+  "homepage": "https://github.com/NiceOpenSource/posttolemmy#readme",
+  "devDependencies": {
+    "bulma": "^0.9.3",
+    "css-minify": "^2.0.0",
+    "node-sass": "^6.0.1"
+  }
+}

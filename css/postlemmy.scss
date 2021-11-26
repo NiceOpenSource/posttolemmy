@@ -13,12 +13,12 @@ $link-hover: $primary;
 $input-hover-color: $primary;
 $input-hover-border-color: $primary;
 $family-monospace: "Source Code Pro";
-$family-sans-serif: "Ubuntu";
-@import 'bulma/bulma.sass';
+$family-sans-serif: "Roboto";
+@import '../node_modules/bulma/bulma.sass';
 
 @font-face {
-  font-family: "Ubuntu";
-  src: url("css/Ubuntu-Regular.ttf");
+  font-family: "Roboto";
+  src: url("css/Roboto-Regular.ttf");
 }
 
 @font-face {
