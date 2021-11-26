@@ -26,11 +26,11 @@ if you use a recent version of Firefox, the package will install itself otherwis
 
 
 ## On Google Chrome and other Chromium based browser :large_blue_circle: :green_circle: :yellow_circle: :red_circle:
-The .crx package is theorically compatible with all Chromium based browser, the only change is the extension page, for example: in Opera it would be ``opera://extensions``
+The .crx package is theorically compatible with all Chromium based browser. Depending on the browser you could need to find the extension page by yourself.
 
 So far, the compatibility have been tested successfully on Chrome, Chromium and Opera.
 1. :file_folder: Download the last release of the [packaged extension](https://github.com/NiceOpenSource/posttolemmy/releases/latest) for Chrome (.crx)
-2. 🧩 Open the ``chrome://extensions/`` page in Chrome browser
+2. 🧩 Open the ``chrome://extensions/`` page in your chromium browser
 3. :open_file_folder:  Drag and drop the .crx into the browser window
 4. :hammer_and_wrench: Click on the puzzle to pin the add-on to the extension toolbar 
 5. :mouse: Open the extension using the icon at the top-right corner of your browser window and input the login intels to your Lemmy instance
