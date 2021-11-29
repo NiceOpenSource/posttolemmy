@@ -41,6 +41,60 @@ function registerInfo (lemmy, counter, mFieldsOK) {
     } else if (counter < 300) setTimeout(registerInfo, 200, lemmy, counter+1, mFieldsOK);
 }
 
+function lemmyInfo() {
+    $('#urlEmpty').addClass('hidden')
+    $('#loginEmpty').addClass('hidden')
+    $('#passwordEmpty').addClass('hidden')
+    $('#urlNoMatch').addClass('hidden')
+    $('#passwordOrEmailInvalid').addClass('hidden')
+    const formData = {
+        "URL": $('input#inputUrl').val(),
+        "login": $('input#inputUsername').val(),
+        "password": $('input#inputPassword').val(),
+    }
+    var matches;
+    if (formData.URL) {
+        matches = formData.URL.match(/^https?:\/\/[a-z0-9.\-\/]+$/)
+        if (matches != null) {
+            if (matches[0].length === formData.URL.length) {
+                if (!formData.URL.endsWith('/'))
+                    formData.URL += '/'
+                fieldsOk.URL = true;
+            } else {
+                $('#urlNoMatch').removeClass('hidden')
+            }
+        } else {
+            $('#urlNoMatch').removeClass('hidden')
+        }
+    } else {
+        $('#urlEmpty').removeClass('hidden')
+    }
+    if (formData.login)
+        fieldsOk.login = true;
+    else {
+        $('#loginEmpty').removeClass('hidden')
+    }
+    if (formData.password)
+        fieldsOk.password = true;
+    else {
+        $('#passwordEmpty').removeClass('hidden')
+    }
+    axios({
+        method: 'POST',
+        url: formData.URL+'api/v3/user/login',
+        data: {"username_or_email": formData.login, "password": formData.password},
+    }).then(function(response) {
+        lemmyJwt = response.data.jwt;
+        $('form#initForm').addClass('hidden')
+        $('div#defaultPage').removeClass('hidden');
+        registerInfo(formData, 0, fieldsOk);
+        runtime(formData)
+    }).catch((err) => {
+        console.log(err)
+        $('#passwordOrEmailInvalid').removeClass('hidden')
+    })
+}
+
 function getLemmyInfo() {
     $('form#initForm').removeClass('hidden')
     $('div#defaultPage').addClass('hidden')
@@ -49,59 +103,8 @@ function getLemmyInfo() {
             $('#inputPassword').attr('type', 'text')
         else $('#inputPassword').attr('type', 'password') 
     })
-    $('#submitButton').on('click', () => {
-        $('#urlEmpty').addClass('hidden')
-        $('#loginEmpty').addClass('hidden')
-        $('#passwordEmpty').addClass('hidden')
-        $('#urlNoMatch').addClass('hidden')
-        $('#passwordOrEmailInvalid').addClass('hidden')
-        const formData = {
-            "URL": $('input#inputUrl').val(),
-            "login": $('input#inputUsername').val(),
-            "password": $('input#inputPassword').val(),
-        }
-        var matches;
-        if (formData.URL) {
-            matches = formData.URL.match(/^https?:\/\/[a-z0-9.\-\/]+$/)
-            if (matches != null) {
-                if (matches[0].length === formData.URL.length) {
-                    if (!formData.URL.endsWith('/'))
-                        formData.URL += '/'
-                    fieldsOk.URL = true;
-                } else {
-                    $('#urlNoMatch').removeClass('hidden')
-                }
-            } else {
-                $('#urlNoMatch').removeClass('hidden')
-            }
-        } else {
-            $('#urlEmpty').removeClass('hidden')
-        }
-        if (formData.login)
-            fieldsOk.login = true;
-        else {
-            $('#loginEmpty').removeClass('hidden')
-        }
-        if (formData.password)
-            fieldsOk.password = true;
-        else {
-            $('#passwordEmpty').removeClass('hidden')
-        }
-        axios({
-            method: 'POST',
-            url: formData.URL+'api/v3/user/login',
-            data: {"username_or_email": formData.login, "password": formData.password},
-        }).then(function(response) {
-            lemmyJwt = response.data.jwt;
-            $('form#initForm').addClass('hidden')
-            $('div#defaultPage').removeClass('hidden');
-            registerInfo(formData, 0, fieldsOk);
-            runtime(formData)
-        }).catch((err) => {
-            console.log(err)
-            $('#passwordOrEmailInvalid').removeClass('hidden')
-        })
-    });
+    $('form#initForm').on('submit', lemmyInfo)
+    $('#submitButton').on('click', lemmyInfo)
 }
 
 function GetCommunities(lemmyCreds) {
@@ -201,6 +204,7 @@ function createPost(lemmyCreds) {
             }).then((response) => {
                 if(response.status === 200) {
                     $('button#mainButton').removeClass('is-loading');
+                    $('button#mainButton').css('cursor', 'default');
                     $('button#mainButton').html('<i class="has-text-success" data-feather="check"></i>')
                     feather.replace()
                     console.log('New post successfully posted, opening the post webpage.', lemmyCreds.URL.lemmyURL+`post/${response.data.post_view.post.id}`);
